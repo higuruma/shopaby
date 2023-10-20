@@ -1,2 +1,4 @@
 # shopaby
-2023 SU-ACM Personal Project Competition  SHOPABY website that 
+2023 SU-ACM Personal Project Competition 
+
+This website allows users to list, browse, and trade/sell cards.
