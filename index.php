@@ -5,15 +5,15 @@
 EcHo "echo!<br>";
 ?>
 
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>my first PHP</title>
+    <title>SHOPABY - HOME</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
 
-      <h2><?php echo 'a heading 2'; ?></h2>
+      <h2><?php echo 'MONKEee'; ?></h2>
       <h1></h1>
 
       <script src="scripts/main.js"></script>
