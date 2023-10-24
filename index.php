@@ -13,7 +13,6 @@ EcHo "echo!<br>";
   </head>
   <body>
 
-      <h2><?php echo 'MONKEeee'; ?></h2>
       <h1></h1>
 
       <script src="scripts/main.js"></script>
