@@ -14,6 +14,7 @@ EcHo "echo!<br>";
   <body>
 
       <h2><?php echo 'a heading 2'; ?></h2>
+      <h2><?php echo 'another heading 2'; ?></h2>
       <h1></h1>
 
       <script src="scripts/main.js"></script>
