@@ -13,7 +13,7 @@ EcHo "echo!<br>";
   </head>
   <body>
 
-      <h1></h1>
+      <h1><?php echo "hello";?></h1>
 
       <script src="scripts/main.js"></script>
   </body>
