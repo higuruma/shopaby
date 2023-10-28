@@ -1,7 +1,7 @@
 
 <?php
   print "JJJSs";
-  ECHO "bqayb<br>";
+  ECHO "please";
 EcHo "echo!<br>";
 ?>
 
