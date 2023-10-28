@@ -11,7 +11,7 @@
   </head>
   <body>
 
-      <h1><?php echo "hello"; ?></h1>
+      <h1>hello</h1>
 
       <script src="scripts/main.js"></script>
   </body>
