@@ -23,7 +23,7 @@
             <div class = "container">
                 <a href="#" class = "brand-logo">Shopaby</a>
                 <ul id = "nav-mobile" class = "right hide-on-small-and-down">
-                    <li><a href = "#" class = "btn brand z-depth-0">Add Listing</a></li>
+                    <li><a href = "add.php" class = "btn brand z-depth-0">Add Listing</a></li>
                 </ul>
             </div>
         </nav>
