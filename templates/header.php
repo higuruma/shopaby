@@ -204,12 +204,23 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
         height: 44px;
         position: absolute;
     }
+    
+    @media only screen and (max-width: 900px) {
+        #album-pic {
+            display: none;
+        }
+        #album-pic-div{
+            display: none;
+        }
+    }
 
 
     .dropbtn {
         font-size: 16px;
         color: #febcde;
         padding-top: 9px;
+        position: fixed;
+        margin: auto;
     }
 
     .dropdown:hover .dropbtn {
