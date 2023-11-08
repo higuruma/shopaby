@@ -6,6 +6,7 @@
     //checking if 'submit' has been initialized/pressed
     $username = $first_name = $last_name = $email = $psw = '';
     $errors = array('username' => '', 'first_name'=>'', 'last_name'=> '', 'email'=>'', 'psw'=>'');
+    $noInput = true;
 
     // function checkUsername($username, $conn){
     //     $userExists = false;
@@ -93,7 +94,6 @@
             
             //username validation
             // checkUsername($username);
-            $userExists = false;
             $sql = "SELECT * FROM users WHERE username = '$username'";
             $result = mysqli_query($conn, $sql);
 
@@ -129,7 +129,7 @@
 <html>
     <?php include('templates/header.php'); ?>
         <h4 class = "center">Sign Up Now!</h4>
-        <form class = "input_form" action = "signup.php" class = "white" method = "POST">
+        <form class = "input_form" action = "/shopaby/signup.php" class = "white" method = "POST">
             <label>Username</label></label>
             <input type = "text" name = "username">
             <label>First Name</label></label>
@@ -146,15 +146,21 @@
         </form>
 
     <!-- Displaying error if username already exists-->
+    
     <?php if($userExists == false): ?>
         <?php 
             $sql = "INSERT INTO users(username,first_name,last_name,email,psw) VALUES('$username', '$first_name', '$last_name', '$email', '$psw')";
+           
         ?>
     <?php else:?>
-        <div class= "alert">
-            <span class = "closebtn" onclick = "this.parentElement.style.display='none';">&times;</span> 
-            <strong> Error! </strong> This username is already taken.
-        </div>
+        <?php if($noInput == true): ?>
+<!-- Do nothing if first time loading page -->
+<?php else:?>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong> Error! </strong> Username is taken.
+</div>
+<?php endif;?>
     <?php endif;?>
 
     <?php include('templates/footer.php'); ?>

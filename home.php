@@ -50,12 +50,6 @@ include('config/db_connect.php');
     }  
 </script> 
   <?php include('templates/header.php'); ?>
-  <form method = "get" 
-    action = '/shopaby/home.php'>
-    <label>Search Bar</label>
-    <input id="search_id" type = "text" name = "q" value = "">
-    <input type = "submit" >
-  </form>
   <li><a href = "add.php" class = "btn brand z-depth-0">Add Listing</a></li>
 
   <div class="container">

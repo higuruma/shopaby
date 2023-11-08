@@ -42,316 +42,389 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 <head>
-<title>Shopaby</title>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
-</script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Agbalumo">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gaegu">
+    <title>Shopaby</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Agbalumo">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gaegu">
 
 
-<style>
-.brand {
-    color: #ffffff;
-}
-.footer{
-    text-align: center;
-}
+    <style>
+    .brand {
+        color: #ffffff;
+    }
 
-/* Sign In/Up Form Styling */
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+    .footer {
+        text-align: center;
+        position: absolute;
+        left: 40%;
+        right: 40%;
+        bottom: 10px;
+        margin: auto;
 
-input[type="submit"] {
-    text-align: center;
-    background-color: #ff8fab;
-    border-radius: 25px;
-    border: none;
-    color: white;
-    padding: 24px 24px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-input[type="submit"]:hover {
-    background-color: #febdce;
-}
-.input_form{
-    display: flex;
-    flex-direction: column;
-    max-width: 50vh;
-    font-size: 15px;
-    margin: 30px auto;
-    padding: 20px;
-}
+    }
 
-/* Alert Dialog Styling */
-.alert {
-    border-radius: 25px;
-    border: 2px solid #ff8fab;
-    margin-right: 25%;
-    margin-left: 25%;
-    text-align: center;
-    padding: 20px;
-    background-color: white;
-    color: #ff8fab;
-}
+    /* Sign In/Up Form Styling */
+    input[type=text],
+    [type=password],
+    [type=email],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-.closebtn {
-    
-    margin-left: 15px;
-    color: #ff8fab;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+    input[type="submit"] {
+        width: 90%;
+        text-align: center;
+        background-color: #ffffff;
+        border-radius: 25px;
+        border: 2px solid #febdce;
+        color: black;
+        padding: 24px 24px;
+        text-decoration: none;
+        margin: 20px 2px;
+        cursor: pointer;
+    }
 
-.closebtn:hover {
-    color: #fadde1;
-}
+    input[type="submit"]:hover {
+        color: white;
+        transition-duration: 0.4s;
+        background-color: #febdce;
+    }
 
-.logo {
-    padding: 10px;
-    font-size: 30px;
-    font-family: "Gaegu";
-    color: white;
-    display: inline;
-    float: left;
-}
+    .input_form {
+        display: flex;
+        flex-direction: column;
+        max-width: 50vh;
+        font-size: 15px;
+        margin: 30px auto;
+        padding: 20px;
+    }
 
+    /* Alert Dialog Styling */
+    .alert {
+        border-radius: 25px;
+        border: 2px solid #ff8fab;
+        margin-right: 25%;
+        margin-left: 25%;
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        color: black;
+    }
 
-body {
-    font-family: "Gaegu";
-    margin: 0px;
-    
-}
+    .closebtn {
 
-.primary {
-    background: #ffffff !important;
-    height: 15%;
-}
+        margin-left: 15px;
+        color: #ff8fab;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    height: 10%;
-    overflow: hidden;
-}
+    .closebtn:hover {
+        color: #fadde1;
+    }
 
-li {
-    float: left;
-    height: 15%;
-}
+    .logo {
+        padding: 10px;
+        font-size: 30px;
+        font-family: "Rubik Tilt";
+        color: #000000;
+        display: inline;
+        float: left;
+        font-weight: bold;
+        text-decoration: none;
+    }
 
-i {
-    color: #ffffff;
-}
+    body {
+        font-family: "Gaegu";
+        margin: 0px;
 
-.header-elements-float-right {
-    float: right;
-}
+    }
 
-/* Dropdown Menu Styling */
-
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
-
-.navbar a:hover,
-.dropdown:hover .dropbtn {
-    padding: 20px;
-    background-color: pink;
-    border-radius: 30px;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Search Bar Styling */
-
-#search_form {
-    background-color: #ffffff;
-    width: 300px;
-    height: 44px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10px;
-}
-
-input {
-    all: unset;
-    font: 16px system-ui;
-    color: #febcde;
-    height: 100%;
-    width: 100%;
-    padding: 10px;
-    margin-left: 10px;
-    border: 0px solid #ffffff;
-}
-
-#search {
-    padding-left: 15px;
-    padding-top: 10px;
-    border: none;
-    border-width: 0px;
-    border-style: none;
-    border-color: #febcde;
-    border-radius: 30px;
-}
-
-::placeholder {
-    color: #febcde;
-    opacity: 0.7;
-}
-
-button {
-    all: unset;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-}
-
-svg {
-    color: #febcde;
-    fill: currentColor;
-    width: 24px;
-    height: 24px;
-    padding: 10px;
-}
+    .primary {
+        background: #ffffff !important;
+        height: 15%;
+    }
 
 
+    .header-elements-float-right {
+        float: right;
+        margin: auto;
+    }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #febcde;
-}
 
-li {
-    float: left;
-    margin: 1%;
-    height: 78px;
-}
+    /* Dropdown Menu Styling 
+         margin-left: 10px;
+            margin-right: 10px;
+            float: right;
+            padding-left: 15px;
+            padding-right: 30px;
+        */
 
-.listings-btn {
-    color: #ffffff;
-}
 
-.label-icon {
-    float: center;
-    margin: 10px;
-    padding: 10px;
-}
+    .dropdown {
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        margin: auto;
+        padding: 10px;
+        color: #febcde;
+    }
 
-.material-icon {
-    float: center;
-    margin: 10px;
-    padding: 10px;
-}
+    #album-pic-div {
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        margin: auto;
+        padding: 10px;
+        color: #febcde;
+    }
 
-#pink-logo {
-    margin: 10px;
-    width: 50px;
-    height: 50px;
-}
+    #album-pic {
+        all: unset;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        position: absolute;
+    }
 
-#logo {
-    margin: 12px;
-    background-image: url(assets/images/album_icon_white.png);
-    background-repeat: no-repeat;
-    background-size: auto;
-    width: 32px;
-    height: 32px;
-    float: right;
-}
-</style>
+
+    .dropbtn {
+        font-size: 16px;
+        color: #febcde;
+        padding-top: 9px;
+    }
+
+    .dropdown:hover .dropbtn {
+        border-radius: 30px;
+
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 30px;
+        top: 90px;
+        background-color: black;
+        min-width: 200px;
+        border-color: #febcde;
+        border-style: solid;
+        border-width: 3px;
+    }
+
+    .dropdown-content a {
+        float: center;
+        color: black;
+        position: relative;
+        align-items: center;
+        flex-direction: column;
+        text-decoration: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: block;
+        text-align: left;
+        border-color: #febcde;
+        background-color: #ffffff;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #febcde;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: inline;
+    }
+
+    /* Search Bar Styling */
+
+    #search_form {
+        background-color: #ffffff;
+        height: 25px;
+        width: 60%;
+        display: inline;
+    }
+
+    #search-bar {
+        margin-top: 10px;
+        display: inline;
+        width: 50%;
+    }
+
+    input {
+        all: unset;
+        font: 16px system-ui;
+        color: black;
+        font-family: 'Gaegu';
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+        margin-left: 10px;
+
+    }
+
+    #search-input {
+        height: 25px;
+        width: 80%;
+        margin-top: 8px;
+        padding-left: 25px;
+        padding-left: 15px;
+        padding-top: 10px;
+        border-radius: 30px;
+        border-color: #febcde;
+        border-style: solid;
+        border-width: 3px;
+    }
+
+    @media screen and (max-width: 330px) {
+        html {
+            width: 330px;
+            overflow: auto;
+        }
+    }
+
+    @media screen and (max-height: 400px) {
+        html {
+            height: 400px;
+            overflow: auto;
+        }
+    }
+
+    button {
+        all: unset;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        position: absolute;
+    }
+
+    svg {
+        color: #febcde;
+        fill: currentColor;
+        width: 24px;
+        height: 24px;
+        padding-top: 20px;
+        padding-left: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        align-items: center;
+        background-color: #ffffff;
+        min-height: 8vh;
+        overflow: hidden;
+    }
+
+
+    li {
+        float: left;
+        display: inline;
+        margin: 1%;
+        height: 70px;
+    }
+
+
+    .listings-btn {
+        color: #ffffff;
+    }
+
+    i {
+        color: #febcde;
+    }
+
+    hr {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #000000;
+        position: relative;
+    }
+
+    hr.pink-hr {
+        border-color: #febcde;
+    }
+
+    #pink-logo {
+        margin: 8px;
+        width: 50px;
+        height: 50px;
+        float: left;
+    }
+
+    #logo {
+        margin: 12px;
+        background-image: url(assets/images/album_icon_white.png);
+        background-repeat: no-repeat;
+        background-size: auto;
+        width: 32px;
+        height: 32px;
+        float: right;
+    }
+    </style>
 </head>
 
 <body>
-<ul>
-<li><img src="assets/images/shopaby_logo_white.png" alt="Shopaby" id="pink-logo" /></li>
-<li><a href="index.php" class="logo">Shopaby</a></li>
-<li>
-<form id="search_form" method="get" action='/shopaby/index.php'>
-<input id="search" type="search" name="q" value="" aria-label="Search through site content"
-class="z-depth-0">
-<button>
-<svg viewBox="0 0 1024 1024">
-<path class="path1"
-d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z">
-</path>
-</svg>
-</button>
-</form>
-</li>
-<li"header-elements-float-right">
-<div class="dropdown">
-<button class="dropbtn"><i class="fa fa-bars"></i></button>
-<div class="dropdown-content">
-<a href="#">Link 1</a>
-<a href="#">Link 2</a>
-<a href="#">Link 3</a>
-</div>
-</div>
-</li>
-<li class="header-elements-float-right"><a href="album.php"><img src="assets/images/album_icon_white.png"
-alt="album" id="logo"></a></li>
+    <div id="wrapper">
+        <ul id="header">
+            <li><img src="assets/images/shopaby_logo_pink.png" alt="shopaby" id="pink-logo" /></li>
+            <li><a href="index.php" class="logo">shopaby</a></li>
+            <li id="search-bar">
+                <form id="search-form" method="get" action='/shopaby/index.php'>
+                    <input id="search-input" type="search" name="q" value="">
+                    <button>
+                        <svg viewBox="0 0 1024 1024">
+                            <path class="path1"
+                                d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z">
+                            </path>
+                        </svg>
+                    </button>
+                </form>
+            </li>
+            <li class="header-elements-float-right">
+                <div id="album-pic-div">
+                    <a id="album-pic" href="album.php"><img src="assets/images/album_icon_pink.png" alt="album-pic"
+                            id="logo"></a>
 
+                </div>
+            </li>
+            <li class="header-elements-float-right">
+                <div id="album-pic-div">
+                    <a id="album-pic" href="album.php"><img src="assets/images/album_icon_pink.png" alt="album-pic"
+                            id="logo"></a>
 
+                </div>
+            </li>
+            <li class="header-elements-float-right">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fa fa-bars"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </li>
 
-</ul>
+        </ul>
+    </div>
+    <hr>
+    <hr class="pink-hr">
 </body>

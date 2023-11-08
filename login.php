@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
     
     if(array_filter($errors)){
         echo "errors in form";
-        echo $errors;
+        // echo $errors;
     }else{
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $psw = mysqli_real_escape_string($conn, $_POST['psw']);
@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
         if(mysqli_query($conn, $sql)){
             //successful
         } else {
-            echo 'query error: ' . mysqli_error($conn);
+            // echo 'query error: ' . mysqli_error($conn);
         }
     }
 }
@@ -90,43 +90,41 @@ if(isset($_POST['submit'])){
 <input type = "submit" name = "submit" value = "Login!" class = "btn-brand z-depth-0">
 </div>
 </form> -->
-    <form class = "input_form" action="/login.php" method = "POST">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Your username...">
-
-        <label for="psw">Password</label>
-        <input type="password" id="psw" name="psw" placeholder="Your password...">
-
-        <div class="center">
-        <input type = "submit" name = "submit" value = "Login!">
-        </div>
-    </form>
+<form class="input_form" action="/shopaby/login.php" method="POST">
+    <label>Username</label></label>
+    <input type="text" name="username" placeholder="Your username..">
+    <label>Password</label></label>
+    <input type="password" name="psw" placeholder="Your password..">
+    <div class="center">
+        <input type="submit" name="submit" value="Login!">
+    </div>
+</form>
 <?php if($userFound == true): ?>
-    <?php if($pswCorrect == true): ?>
-        <?php 
-        // if user found and pw true, redirect to home page
-        // echo "going home";
-        header('Location: home.php');
+<?php if($pswCorrect == true): ?>
+<?php 
+        echo "<script> location.href='/shopaby/home.php'; </script>";
+        exit;
         ?>
-        <?php elseif($pswCorrect == false):?>
-            <!-- Otherwise, if user found but password not true, show wrong password dialog -->
-            <div class= "alert">
-            <span class = "closebtn" onclick = "this.parentElement.style.display='none';">&times;</span> 
-            <strong> Error! </strong> Incorrect Password.
-            </div>
-            <?php endif;?>
-            <?php else:?>
-                <?php if($noInput == true): ?>
-                    <!-- Do nothing if first time loading page -->
-                    <?php else:?>
-                        <div class= "alert">
-                        <span class = "closebtn" onclick = "this.parentElement.style.display='none';">&times;</span> 
-                        <strong> Error! </strong> User Not Found.
-                        </div>
-                        <?php endif;?>
-                        <?php endif;?>
-                        
-                        <!-- Displaying error if username already exists-->
-                        
-                        <?php include('templates/footer.php'); ?>
-                        </html>
+<?php elseif($pswCorrect == false):?>
+<!-- Otherwise, if user found but password not true, show wrong password dialog -->
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong> Error! </strong> Incorrect Password.
+</div>
+<?php endif;?>
+<?php else:?>
+<?php if($noInput == true): ?>
+<!-- Do nothing if first time loading page -->
+<?php else:?>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong> Error! </strong> User Not Found.
+</div>
+<?php endif;?>
+<?php endif;?>
+
+<!-- Displaying error if username already exists-->
+
+<?php include('templates/footer.php'); ?>
+
+</html>

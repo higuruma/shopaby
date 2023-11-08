@@ -48,21 +48,15 @@ include('config/db_connect.php');
     }  
 </script> 
   <?php include('templates/header.php'); ?>
-  <form method = "get" 
-    action = '/shopaby/index.php'>
-    <label>Search Bar</label>
-    <input id="search_id" type = "text" name = "q" value = "">
-    <input type = "submit" >
-  </form>
 
-  <h4 class = "center grey-text">Users!</h4>
+  <h4>Users!</h4>
 
   <div class="container">
     <div class="row">
-      <a href = "signup.php">sign up for new user</a>
+      <a href = "/shopaby/signup.php">sign up for new user</a>
     </div>
     <div class="row">
-      <a href = "login.php">existing user login</a>
+      <a href = "/shopaby/login.php">existing user login</a>
     </div>
     <div>
       <a href = "home.php">home shortcut</a>
