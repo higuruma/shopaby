@@ -7,9 +7,30 @@
     $username = $first_name = $last_name = $email = $psw = '';
     $errors = array('username' => '', 'first_name'=>'', 'last_name'=> '', 'email'=>'', 'psw'=>'');
 
-    function checkUsername(){
-        
-    }
+    // function checkUsername($username, $conn){
+    //     $userExists = false;
+    //         $sql = "SELECT * FROM users WHERE username = '$username'";
+    //         $result = mysqli_query($conn, $sql);
+
+    //         if($result){
+
+    //             $usernames = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    //             foreach($usernames as $un){
+    //                 echo htmlspecialchars($un['username']);
+    //                 echo "|";
+    //                 echo htmlspecialchars($username);
+    //                 if(htmlspecialchars($un['username']) == htmlspecialchars($username)){
+    //                     echo "2";
+    //                     $userExists = true;
+    //                     break;
+    //                 }
+    //             }
+    
+    //         }else{
+    //             echo "error";
+    //         }
+    // } doesnt work for some reason :skull:
 
     if(isset($_POST['submit'])){
 
@@ -19,7 +40,7 @@
         }else{
             $username = $_POST['username'];
             if(!ctype_alnum($username)){
-                $errors['username'] = 'listing name can only consist of letters and numbers';
+                $errors['username'] = 'username can only consist of letters and numbers';
             }
         }
 
@@ -70,14 +91,30 @@
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $psw = mysqli_real_escape_string($conn, $_POST['psw']);
             
-            //create sql
+            //username validation
+            // checkUsername($username);
+            $userExists = false;
+            $sql = "SELECT * FROM users WHERE username = '$username'";
+            $result = mysqli_query($conn, $sql);
 
-            $sql = "INSERT INTO users(username,first_name,last_name,email,psw) VALUES('$username', '$first_name', '$last_name', '$email', '$psw')";
-            
+            if($result){
+
+                $usernames = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+                foreach($usernames as $un){
+                    if(htmlspecialchars($un['username']) == htmlspecialchars($username)){
+                        $userExists = true;
+                        break;
+                    }
+                }
+    
+            }else{
+                echo "error";
+            }
             //save to db
             if(mysqli_query($conn, $sql)){
-                $current_user = $username;
-                header('Location: home.php');
+                //$current_user = $username;  should be moved to signin page
+                // header('Location: home.php');
 
             } else {
                 echo 'query error: ' . mysqli_error($conn);
@@ -91,9 +128,8 @@
 <!DOCTYPE html>
 <html>
     <?php include('templates/header.php'); ?>
-    <section class = "container grey-text">
-        <h4 class = "center">New User</h4>
-        <form action = "signup.php" class = "white" method = "POST">
+        <h4 class = "center">Sign Up Now!</h4>
+        <form class = "input_form" action = "signup.php" class = "white" method = "POST">
             <label>Username</label></label>
             <input type = "text" name = "username">
             <label>First Name</label></label>
@@ -105,9 +141,21 @@
             <label>Password</label></label>
             <input type = "password" name = "psw">
             <div class="center">
-                <input type = "submit" name = "submit" value = "submit" class = "btn-brand z-depth-0">
+                <input type = "submit" name = "submit" value = "Create Account!" class = "btn-brand z-depth-0">
             </div>
         </form>
-    </section>
+
+    <!-- Displaying error if username already exists-->
+    <?php if($userExists == false): ?>
+        <?php 
+            $sql = "INSERT INTO users(username,first_name,last_name,email,psw) VALUES('$username', '$first_name', '$last_name', '$email', '$psw')";
+        ?>
+    <?php else:?>
+        <div class= "alert">
+            <span class = "closebtn" onclick = "this.parentElement.style.display='none';">&times;</span> 
+            <strong> Error! </strong> This username is already taken.
+        </div>
+    <?php endif;?>
+
     <?php include('templates/footer.php'); ?>
 </html>

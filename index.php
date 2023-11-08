@@ -14,14 +14,14 @@ include('config/db_connect.php');
   //$search_field = DOMDocument::getElementById("demo");
   
   // $_POST["search"];
-  echo 'good process to get:'.$_GET['q'];
+  // echo 'good process to get:'.$_GET['q'];
   
   $q = $_GET['q'];
   
   $sql = "SELECT first_name, last_name FROM users WHERE LOWER(first_name) LIKE LOWER('%$q%') ORDER BY created_at";
- 
   // make query and get result
   // uses $conn variable ref to connect
+  
 
   $result = mysqli_query($conn, $sql);
 
@@ -32,9 +32,9 @@ include('config/db_connect.php');
   $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   // printing array
-  echo "</br>". "Fetched Users". "</br>";
+  // echo "</br>". "Fetched Users". "</br>";
 
-  print_r($users);
+  // print_r($users);
  
 ?>
 
@@ -60,6 +60,9 @@ include('config/db_connect.php');
   <div class="container">
     <div class="row">
       <a href = "signup.php">sign up for new user</a>
+    </div>
+    <div class="row">
+      <a href = "login.php">existing user login</a>
     </div>
     <div>
       <a href = "home.php">home shortcut</a>

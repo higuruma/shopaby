@@ -9,7 +9,7 @@ $db_name = "shopaby";
 
 $conn = mysqli_connect($hostURL, $db_username, $db_password, $db_name);
 
-$current_user;
+$currentUser;
 
 //check connection
 if(!$conn){

@@ -72,7 +72,7 @@
             <label>description</label></label>
             <input type = "text" name = "description">
             <div class="center">
-                <input type = "submit" name = "submit" value = "submit" class = "btn-brand z-depth-0">
+                <input type = "form_submit" name = "submit" value = "submit" class = "btn-brand z-depth-0">
             </div>
         </form>
     </section>
