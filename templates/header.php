@@ -50,7 +50,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
     </script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Agbalumo">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dongle">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gaegu">
 
 
@@ -66,6 +66,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
         right: 40%;
         bottom: 10px;
         margin: auto;
+        font-size: 10x;
 
     }
 
@@ -106,7 +107,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
         display: flex;
         flex-direction: column;
         max-width: 50vh;
-        font-size: 15px;
+        font-size: 25px;
         margin: 30px auto;
         padding: 20px;
     }
@@ -142,7 +143,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     .logo {
         padding: 10px;
         font-size: 30px;
-        font-family: "Rubik Tilt";
+        font-family: "Dongle";
         color: #000000;
         display: inline;
         float: left;
@@ -151,7 +152,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
     body {
-        font-family: "Gaegu";
+        font-family: "Dongle";
         margin: 0px;
 
     }
@@ -184,6 +185,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
         margin: auto;
         padding: 10px;
         color: #febcde;
+        background-color: white;
     }
 
     #album-pic-div {
