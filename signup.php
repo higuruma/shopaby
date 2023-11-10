@@ -123,10 +123,11 @@ if (isset($_POST['submit'])) {
 
 
 ?>
-
+<?php include('templates/header.php'); ?>
 <!DOCTYPE html>
 <html>
-<?php include('templates/header.php'); ?>
+
+
 <body>
     <div class="gen-body-div">
         <h4 class="page-center-title">sign up</h4>
@@ -168,4 +169,5 @@ if (isset($_POST['submit'])) {
 </body>
 
 <?php include('templates/footer.php'); ?>
+
 </html>
