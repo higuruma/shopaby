@@ -37,7 +37,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 <!DOCTYPE html>
-<html >
+<html class="theme-pink">
 
 <head>
     <!-- links and whatnot -->
@@ -74,14 +74,58 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <i class="fa fa-bars"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#user.php">my profile</a>
-                <a href="#">log out</a>
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
             </div>
         </div>
         <div class="nav-elements">
-            <a href="#album.php" class="icons" id="pink-album"><i class="fa fa-book" alt="view my album"></i></a>
+            <a href="#album" class="icons" id="pink-album"><i class="fa fa-book"></i></a>
         </div>
     </div>
     <hr class="color-hr">
     <hr class="color-hr">
+    <div class="gen-body-div">
+        <p> hello </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>hello</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>hello</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>hello</p>
+    </div>
 </body>
+
+</html>
+
+
+<?php include('templates/footer.php');  ?>

@@ -126,46 +126,38 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html>
-<?php include('templates/header.php'); ?>
+
+<head>
+    <link rel="stylesheet" href="styles/user-styles.css">
+</head>
+
 <body>
-    <div class="gen-body-div">
-        <h4 class="page-center-title">sign up</h4>
-        <p></p>
-        <form class="input_form" action="/shopaby/signup.php" class="white" method="POST">
-            <label>username</label></label>
-            <input type="text" name="username">
-            <label>first name</label></label>
-            <input type="text" name="first_name">
-            <label>last name</label></label>
-            <input type="text" name="last_name">
-            <label>email</label></label>
-            <input type="email" name="email">
-            <label>password</label></label>
-            <input type="password" name="psw">
-            <div class="center">
-                <input type="submit" name="submit" value="Create Account!" class="btn-brand z-depth-0">
-            </div>
-        </form>
-
-        <!-- Displaying error if username already exists-->
-
-        <?php if ($userExists == false): ?>
-            <?php
-            $sql = "INSERT INTO users(username,first_name,last_name,email,psw) VALUES('$username', '$first_name', '$last_name', '$email', '$psw')";
-
-            ?>
-        <?php else: ?>
-            <?php if ($noInput == true): ?>
-                <!-- Do nothing if first time loading page -->
-            <?php else: ?>
-                <div class="alert">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    <strong> Error! </strong> Username is taken.
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
+    <?php include('templates/header.php'); ?>
+    <div class="profile">
+        <h4>User Settings</h4>
     </div>
 </body>
 
+
+
+<!-- Displaying error if username already exists-->
+
+<?php if ($userExists == false): ?>
+    <?php
+    $sql = "INSERT INTO users(username,first_name,last_name,email,psw) VALUES('$username', '$first_name', '$last_name', '$email', '$psw')";
+
+?>
+<?php else: ?>
+    <?php if ($noInput == true): ?>
+        <!-- Do nothing if first time loading page -->
+    <?php else: ?>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong> Error! </strong> Username is taken.
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
 <?php include('templates/footer.php'); ?>
+
 </html>
