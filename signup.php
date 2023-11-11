@@ -7,6 +7,7 @@ include('config/db_connect.php');
 $username = $first_name = $last_name = $email = $psw = '';
 $errors = array('username' => '', 'first_name' => '', 'last_name' => '', 'email' => '', 'psw' => '');
 $noInput = true;
+$userExists = true;
 
 // function checkUsername($username, $conn){
 //     $userExists = false;
@@ -95,6 +96,7 @@ if (isset($_POST['submit'])) {
         // checkUsername($username);
         $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
+        $userExists = false;
 
         if ($result) {
 
@@ -103,6 +105,7 @@ if (isset($_POST['submit'])) {
             foreach ($usernames as $un) {
                 if (htmlspecialchars($un['username']) == htmlspecialchars($username)) {
                     $userExists = true;
+                    $noInput = false;
                     break;
                 }
             }
@@ -127,6 +130,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <?php include('templates/header.php'); ?>
+
 <body>
     <div class="gen-body-div">
         <h4 class="page-center-title">sign up</h4>
@@ -151,7 +155,16 @@ if (isset($_POST['submit'])) {
 
         <?php if ($userExists == false): ?>
             <?php
-            $sql = "INSERT INTO users(username,first_name,last_name,email,psw) VALUES('$username', '$first_name', '$last_name', '$email', '$psw')";
+            $sql = "INSERT INTO users
+            ( username, first_name, last_name, email,psw ) 
+            VALUES
+            ('$username', '$first_name', '$last_name', '$email', '$psw')";
+
+            $result = mysqli_query($conn, $sql);
+            $currentUser = $username;
+            $noInput = false;
+            echo "<script> location.href='/shopaby/home.php'; </script>";
+            //exit;
 
             ?>
         <?php else: ?>
@@ -168,4 +181,5 @@ if (isset($_POST['submit'])) {
 </body>
 
 <?php include('templates/footer.php'); ?>
+
 </html>
