@@ -36,24 +36,6 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // Check if person is logged in
 
-$sql = "SELECT * FROM users WHERE username = '$username'";
-$result = mysqli_query($conn, $sql);
-
-if ($result) {
-
-    $usernames = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    foreach ($usernames as $un) {
-        if (htmlspecialchars($un['username']) == htmlspecialchars($username)) {
-            $userExists = true;
-            break;
-        }
-    }
-
-} else {
-    echo "error";
-}
-
 ?>
 
 
