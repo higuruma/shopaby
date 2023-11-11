@@ -29,10 +29,6 @@ $result = mysqli_query($conn, $sql);
 
 $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-// printing array
-// echo "</br>" . "Fetched Users" . "</br>";
-// print_r($users);
-
 
 // Check if person is logged in
 
@@ -76,16 +72,17 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <button class="dropbtn">
                 <i class="fa fa-bars"></i>
             </button>
-            <?php if ($userExists == false): ?>
+            <?php if ($userLoggedIn = false): ?>
                 <div class="dropdown-content">
                     <a href="login.php">login</a>
-                    <a href="#login.php">sign up</a>
+                    <a href="signup.php">sign up</a>
                     
                 </div>
             <?php else: ?>
                 <div class="dropdown-content">
                     <a href="user.php">my profile</a>
-                    <a href="#">log out</a>
+                    <button onclick="<?php $userLoggedIn = false; ?>">Hello</button>
+            
                 </div>
             <?php endif; ?>
 

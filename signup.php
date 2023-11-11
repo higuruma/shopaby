@@ -7,6 +7,7 @@ include('config/db_connect.php');
 $username = $first_name = $last_name = $email = $psw = '';
 $errors = array('username' => '', 'first_name' => '', 'last_name' => '', 'email' => '', 'psw' => '');
 $noInput = true;
+$userExists = true;
 
 // function checkUsername($username, $conn){
 //     $userExists = false;
@@ -98,6 +99,7 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $sql);
 
         $userExists = false;
+
         if ($result) {
 
             $usernames = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -106,6 +108,7 @@ if (isset($_POST['submit'])) {
                 if (htmlspecialchars($un['username']) == htmlspecialchars($username)) {
                     $userExists = true;
                     $noInput = false;
+
                     break;
                 }
             }
@@ -156,10 +159,6 @@ if (isset($_POST['submit'])) {
             ( username, first_name, last_name, email,psw ) 
             VALUES
             ('$username', '$first_name', '$last_name', '$email', '$psw')";
-    var_dump($sql);
-    var_dump($users); 
-    echo "user created";
-    $q = $_GET['q'];
 
     // make query and get result
     // uses $conn variable ref to connect
@@ -186,5 +185,4 @@ if (isset($_POST['submit'])) {
 <?php endif; ?>
 
 <?php include('templates/footer.php'); ?>
-
 </html>

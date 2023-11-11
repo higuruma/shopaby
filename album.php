@@ -8,12 +8,14 @@
 </head>
 
 <body>
-
-  <div class="gen-body-div">
-    <h4 class="page-center-title">explore listings</h4>
-    <div class="scroll-container">
+  <div class="scroll-container">
+    <div class="gen-body-div">
+      <h4 class="page-center-title">explore listings</h4>
+      <div class="scroll-container">
       <div class="card-scroll">
-        <?php foreach ($users as $user) { ?>
+        <?php foreach ($users as $user) { 
+            if($currentUser == htmlspecialchars($user['username'])){
+            ?>
           <div class="card">
             <div class="card-image"></div>
             <div class="card-header">
@@ -29,12 +31,11 @@
             </div>
             <button class="add">add to album</button>
           </div>
-        <?php } ?>
+        <?php }} ?>
 
       </div>
     </div>
   </div>
-
 </body>
 
 <?php include('templates/footer.php') ?>

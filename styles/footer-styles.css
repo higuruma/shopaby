@@ -1,9 +1,9 @@
-footer{
+div.footer{
     align-items: center;
     text-align: center;
     color: #ffffff;
     font-family: 'Dongle';
     font-size: 20px;
-    line-height: 40px;
+    line-height: 60px;
 
 }
