@@ -7,6 +7,7 @@ include('config/db_connect.php');
 $username = $first_name = $last_name = $email = $psw = '';
 $errors = array('username' => '', 'first_name' => '', 'last_name' => '', 'email' => '', 'psw' => '');
 $noInput = true;
+$userExists = true;
 
 // function checkUsername($username, $conn){
 //     $userExists = false;
@@ -95,6 +96,7 @@ if (isset($_POST['submit'])) {
         // checkUsername($username);
         $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
+        $userExists = false;
 
         if ($result) {
 
@@ -103,6 +105,7 @@ if (isset($_POST['submit'])) {
             foreach ($usernames as $un) {
                 if (htmlspecialchars($un['username']) == htmlspecialchars($username)) {
                     $userExists = true;
+                    $noInput = false;
                     break;
                 }
             }
@@ -127,45 +130,51 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <?php include('templates/header.php'); ?>
-<body>
-    <div class="gen-body-div">
-        <h4 class="page-center-title">sign up</h4>
-        <p></p>
-        <form class="input_form" action="/shopaby/signup.php" class="white" method="POST">
-            <label>username</label></label>
-            <input type="text" name="username">
-            <label>first name</label></label>
-            <input type="text" name="first_name">
-            <label>last name</label></label>
-            <input type="text" name="last_name">
-            <label>email</label></label>
-            <input type="email" name="email">
-            <label>password</label></label>
-            <input type="password" name="psw">
-            <div class="center">
-                <input type="submit" name="submit" value="Create Account!" class="btn-brand z-depth-0">
-            </div>
-        </form>
-
-        <!-- Displaying error if username already exists-->
-
-        <?php if ($userExists == false): ?>
-            <?php
-            $sql = "INSERT INTO users(username,first_name,last_name,email,psw) VALUES('$username', '$first_name', '$last_name', '$email', '$psw')";
-
-            ?>
-        <?php else: ?>
-            <?php if ($noInput == true): ?>
-                <!-- Do nothing if first time loading page -->
-            <?php else: ?>
-                <div class="alert">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    <strong> Error! </strong> Username is taken.
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
+<h4 class="center">Sign Up Now!</h4>
+<form class="input_form" action="/shopaby/signup.php" class="white" method="POST">
+    <label>Username</label></label>
+    <input type="text" name="username">
+    <label>First Name</label></label>
+    <input type="text" name="first_name">
+    <label>Last Name</label></label>
+    <input type="text" name="last_name">
+    <label>Email</label></label>
+    <input type="email" name="email">
+    <label>Password</label></label>
+    <input type="password" name="psw">
+    <div class="center">
+        <input type="submit" name="submit" value="Create Account!" class="btn-brand z-depth-0">
     </div>
-</body>
+</form>
+
+<!-- Displaying error if username already exists-->
+
+<?php if ($userExists == false): ?>
+    <?php
+    $sql = "INSERT INTO users
+            ( username, first_name, last_name, email,psw ) 
+            VALUES
+            ('$username', '$first_name', '$last_name', '$email', '$psw')";
+    echo "user created";
+
+    $result = mysqli_query($conn, $sql);
+    $currentUser = $username;
+    $noInput = false;
+    $userLoggedIn = true;
+    echo "<script> location.href='/shopaby/home.php'; </script>";
+    exit;
+?>
+<?php else: ?>
+    <?php if ($noInput == true): ?>
+        <!-- Do nothing if first time loading page -->
+    <?php else: ?>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong> Error! </strong> Username is taken.
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
 
 <?php include('templates/footer.php'); ?>
+
 </html>
