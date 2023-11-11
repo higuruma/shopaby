@@ -1,46 +1,29 @@
 <!DOCTYPE html>
 <html>
-<script type="text/javascript">
-  // onSubmit = search_bar() //
-  function search_bar() {
-    alert("how are you:" + $search_condition);
-  }  
-</script>
 
-<!-- Include the Header Template -->
-<?php include('templates/header.php'); ?>
+<head>
+  <?php include('templates/header.php'); ?>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
 
-<h4>Users!</h4>
-
-<div class="container">
-  <div class="row">
-    <a href="/shopaby/signup.php">sign up for new user</a>
+<body>
+  <div class="login">
+    <h1>Login</h1>
+    <form action="authenticate.php" method="post">
+      <label for="username">
+        <i class="fas fa-user"></i>
+      </label>
+      <input type="text" name="username" placeholder="Username" id="username" required>
+      <label for="password">
+        <i class="fas fa-lock"></i>
+      </label>
+      <input type="password" name="password" placeholder="Password" id="password" required>
+      <input type="submit" value="Login">
+    </form>
   </div>
-  <div class="row">
-    <a href="/shopaby/login.php">existing user login</a>
-  </div>
-  <div>
-    <a href="home.php">home shortcut</a>
-    <?php foreach ($users as $user) { ?>
-      <div class="col s6 md3">
-        <div class="card z-depth-0">
-          <div class="content senter">
-            <h6>
-              <?php echo htmlspecialchars($user['first_name']) ?>
-            </h6>
-            <div>
-              <?php echo htmlspecialchars($user['last_name']) ?>
-            </div>
-          </div>
-          <div class="card-action right-align">
-            <a href="" class="brand-text" href="#">more info</a>
-          </div>
-        </div>
-      </div>
-    <?php } ?>
-  </div>
-</div>
-
-<?php include('templates/footer.php') ?>
+</body>
 
 </html>

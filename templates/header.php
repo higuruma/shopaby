@@ -33,11 +33,32 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // echo "</br>" . "Fetched Users" . "</br>";
 // print_r($users);
 
+
+// Check if person is logged in
+
+$sql = "SELECT * FROM users WHERE username = '$username'";
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+
+    $usernames = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    foreach ($usernames as $un) {
+        if (htmlspecialchars($un['username']) == htmlspecialchars($username)) {
+            $userExists = true;
+            break;
+        }
+    }
+
+} else {
+    echo "error";
+}
+
 ?>
 
 
 <!DOCTYPE html>
-<html >
+<html>
 
 <head>
     <!-- links and whatnot -->
@@ -65,7 +86,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <a href="album" class="icons"><i class="fa fa-search"></i></a>
         </div>
         <div class="search-div">
-            <form id="search-form" method="get" action='/shopaby/index.php'>
+            <form id="search-form" method="get" action='/shopaby/home.php'>
                 <input id="search-input" type="search" name="q" value="" placeholder="Search products..">
             </form>
         </div>
@@ -73,10 +94,19 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <button class="dropbtn">
                 <i class="fa fa-bars"></i>
             </button>
-            <div class="dropdown-content">
-                <a href="#user.php">my profile</a>
-                <a href="#">log out</a>
-            </div>
+            <?php if ($userExists == false): ?>
+                <div class="dropdown-content">
+                    <a href="login.php">login</a>
+                    <a href="#login.php">sign up</a>
+                    
+                </div>
+            <?php else: ?>
+                <div class="dropdown-content">
+                    <a href="user.php">my profile</a>
+                    <a href="#">log out</a>
+                </div>
+            <?php endif; ?>
+
         </div>
         <div class="nav-elements">
             <a href="#album.php" class="icons" id="pink-album"><i class="fa fa-book" alt="view my album"></i></a>

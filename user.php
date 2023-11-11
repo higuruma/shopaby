@@ -133,11 +133,10 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php include('templates/header.php'); ?>
-    <div class="profile">
-        <h4>User Settings</h4>
+    <div class="gen-body-div">
+        <h4 class="page-center-title">user settings</h4>
     </div>
 </body>
-
 
 
 <!-- Displaying error if username already exists-->
