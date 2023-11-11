@@ -1,3 +1,4 @@
+<?php include('templates/header.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,6 @@
 
 <body>
   <div class="gen-body-div">
-    <?php include('templates/header.php'); ?>
     <h4 class="page-center-title">explore listings</h4>
     <?php echo var_dump($currentUser)?>
     <div class="card-scroll">
