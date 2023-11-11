@@ -1,7 +1,9 @@
 <?php
     include 'db_connect.php'
     // connecting to db
+
     $pdo = new PDO('mysql:host=localhost;dbname=shopaby', $db_username, $db_password);
+
     // getting image form db
     $stmt = $pdo->prepare("SELECT naem, type data FROM images WHERE id=?");
     $stmt->bindParam(1, $id);

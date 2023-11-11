@@ -12,11 +12,11 @@ include 'config/db_connect.php';
         // connecting to database
         $pdo = new PDO('mysql:host=localhost;dbname=shopaby', $db_username, $db_password);
 
-        $stmt = $pdo->prepare("INSERT INTO images (name, type, data) VALUES (?, ?, ?)");
-        $stmt->bindParam(1, $name);
-        $stmt->bindParam(2, $type);
-        $stmt->bindParam(3, $data);
-        $stmt->execute();
+        $conn = $pdo->prepare("INSERT INTO images ( id, name, data) VALUES (?, ?, ?)");
+        $conn->bindParam(1, $name);
+        $conn->bindParam(2, $type);
+        $conn->bindParam(3, $data);
+        $conn->execute();
     }
 
 ?>
