@@ -391,6 +391,75 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
         height: 32px;
         float: right;
     }
+    h4.page-center-title{
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Dongle';
+    color: #febcde;
+
+}
+
+.card-scroll{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 400px;
+    background-color: green;
+    align-items: start;
+    display: flex;
+    justify-content: left;
+
+}
+
+.card{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+    font-family: 'Dongle';
+    text-align: center;
+    width: 200px;
+    color: #000000;
+    background-color: blue;
+}
+
+.card-image{
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+    width: 190px;
+    height: 200px;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-name{
+    background-color: yellow;
+    font-size: 25px;
+    width: 40%;
+    text-align: start;
+    align-items: start;
+}
+
+.card-price{
+    background-color: brown;
+    font-size: 25px;
+    width: 40%;
+    text-align: end;
+    align-self: end;
+}
+
+.card-list-date{
+    margin-left: 10px;
+    background-color: purple;
+    height: 10x;
+    font-size: 20px;
+    text-align: start;
+    align-self: start;
+}
     </style>
 </head>
 
@@ -428,11 +497,18 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <li class="header-elements-float-right">
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-bars"></i></button>
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
+                    <?php if ($userLoggedIn == false): ?>
+                <div class="dropdown-content">
+                    <a href="login.php">login</a>
+                    <a href="#login.php">sign up</a>
+
+                </div>
+            <?php else: ?>
+                <div class="dropdown-content">
+                    <a href="user.php">my profile</a>
+                    <a href="#">log out</a>
+                </div>
+            <?php endif; ?>
                 </div>
             </li>
 
