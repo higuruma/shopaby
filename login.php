@@ -102,6 +102,7 @@ if(isset($_POST['submit'])){
 <?php if($userFound == true): ?>
 <?php if($pswCorrect == true): ?>
 <?php 
+        $currentUser = $username;
         $userLoggedIn = true;
         echo "<script> location.href='/shopaby/home.php'; </script>";
         exit;

@@ -96,6 +96,7 @@ if (isset($_POST['submit'])) {
         // checkUsername($username);
         $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
+        $userExists = false;
 
         if ($result) {
 
@@ -104,6 +105,7 @@ if (isset($_POST['submit'])) {
             foreach ($usernames as $un) {
                 if (htmlspecialchars($un['username']) == htmlspecialchars($username)) {
                     $userExists = true;
+                    $noInput = false;
                     break;
                 }
             }
@@ -156,6 +158,8 @@ if (isset($_POST['submit'])) {
     echo "user created";
 
     $result = mysqli_query($conn, $sql);
+    $currentUser = $username;
+    $noInput = false;
     $userLoggedIn = true;
     echo "<script> location.href='/shopaby/home.php'; </script>";
     exit;
