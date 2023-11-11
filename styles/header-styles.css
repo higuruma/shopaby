@@ -1,0 +1,234 @@
+
+
+html{
+    background-image: url("../assets/images/pink-vaporwave.png");
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Add a black background color to the top navigation */
+.nav-bar {
+    background-color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: 0px 8px 16px 0px #ffe5ecc2;
+}
+
+/* Style the links inside the navigation bar */
+.nav-bar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.nav-bar .icon {
+    display: none;
+}
+
+div.nav-elements {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    padding: 10px;
+    height: 10vh;
+
+}
+
+/* Add an active class to highlight the current page */
+.active {
+    background-color: #febcde;
+    color: white;
+}
+
+/* Dropdown container - needed to position the dropdown content */
+.dropdown {
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Style the dropdown button to fit inside the topnav */
+.dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    right: 1px;
+    scroll-padding-right: 30px;
+    color: black;
+    position: absolute;
+    background-color: #ffffff;
+    border-color: #febcde;
+    font-family: "Dongle";
+    border-width: 2px;
+    border-style: solid;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px #ffe5ecc2;
+    z-index: 1;
+}
+
+/* Style link text*/
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    font-family: "Dongle";
+    color: #000000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    background-color: #ffffff;
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-property: color;
+    transition-duration: 1s;
+}
+
+
+/* Add a pink background to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #febcde;
+    color: #ffffff;
+}
+
+/* Show the dropdown menu when the user moves the mouse over the dropdown button */
+.dropdown:hover .dropdown-content {
+    display: block;
+    margin-right: 10%;
+    width: 100px;
+}
+
+/*Search Elements*/
+
+
+div.search-div {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 11px;
+    padding-bottom: 5px;
+    height: 10vh;
+    min-width: 150px;
+    width: 60%;
+    display: inline-block;
+    background-color: #ffffff;
+
+}
+
+#search_form {
+    margin: 20px;
+    background-color: #ffffff;
+    height: 25px;
+    display: inline;
+}
+
+#search-input {
+    height: 30px;
+    width: 80%;
+    background-color: #ffffff;
+    margin-top: 8px;
+    padding-left: 25px;
+    padding-top: 5px;
+    border-radius: 30px;
+    border-color: #febcde;
+    border-style: solid;
+    border-width: 3px;
+    color: #FF5D8F;
+    font-size: 25px;
+    line-height: 100px;
+    font-family: "Dongle";
+    text-align: left;
+    transition-property: background-color;
+    transition-duration: 2s;
+}
+
+#search-input:hover {
+    background-color: #febcde;
+    color:#000000;
+}
+
+::placeholder {
+  color: #ef8cac;
+  transition-property: color;
+  transition-duration: 2s;
+}
+
+
+/* Style icons*/
+
+.icons {
+    color: #febcde;
+}
+
+i {
+    color: #febcde;
+}
+
+a.brand-text {
+    color: #000000;
+    font-size: 32px;
+    line-height: 25px;
+    font-family: "Dongle";
+    font-weight: bold;
+}
+
+#pink-logo {
+    margin: 10px;
+    width: 32px;
+    height: 32px;
+    float: left;
+}
+
+hr {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #000000;
+    position: relative;
+    box-shadow: 0px 8px 16px 0px #ffe5ecc2;
+}
+
+hr.color-hr {
+    border-color: #ffffff;
+    box-shadow: 0px 8px 16px 0px #ffe5ecc2;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+    #pink-album{
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        margin-left: auto;
+        right: 0px;
+        margin-right: 3%;
+    }
+    
+}
