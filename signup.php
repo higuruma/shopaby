@@ -7,6 +7,8 @@ include('config/db_connect.php');
 $username = $first_name = $last_name = $email = $psw = '';
 $errors = array('username' => '', 'first_name' => '', 'last_name' => '', 'email' => '', 'psw' => '');
 $noInput = true;
+$userExists = true;
+
 
 // function checkUsername($username, $conn){
 //     $userExists = false;
@@ -34,6 +36,7 @@ $noInput = true;
 // } doesnt work for some reason :skull:
 
 if (isset($_POST['submit'])) {
+    
 
     //check username
     if (empty($_POST['username'])) {
@@ -156,22 +159,12 @@ if (isset($_POST['submit'])) {
             ( username, first_name, last_name, email,psw ) 
             VALUES
             ('$username', '$first_name', '$last_name', '$email', '$psw')";
-    var_dump($sql);
-    var_dump($users); 
     echo "user created";
-    $q = $_GET['q'];
-
-    // make query and get result
-    // uses $conn variable ref to connect
-    
     
     $result = mysqli_query($conn, $sql);
-  
-    // Have to get from result the array that want
-    // fetch resulting rows
-    // returns $result as associative array
-
-
+    $userLoggedIn = true;
+    echo "<script> location.href='/shopaby/home.php'; </script>";
+    exit;
 ?>
 <?php else: ?>
     <?php if ($noInput == true): ?>
