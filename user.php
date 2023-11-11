@@ -7,7 +7,6 @@ include('config/db_connect.php');
 $username = $first_name = $last_name = $email = $psw = '';
 $errors = array('username' => '', 'first_name' => '', 'last_name' => '', 'email' => '', 'psw' => '');
 $noInput = true;
-$userExists = true;
 
 // function checkUsername($username, $conn){
 //     $userExists = false;
@@ -127,38 +126,26 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html>
-<?php include('templates/header.php'); ?>
-<h4 class="center">Sign Up Now!</h4>
-<form class="input_form" action="/shopaby/signup.php" class="white" method="POST">
-    <label>Username</label></label>
-    <input type="text" name="username">
-    <label>First Name</label></label>
-    <input type="text" name="first_name">
-    <label>Last Name</label></label>
-    <input type="text" name="last_name">
-    <label>Email</label></label>
-    <input type="email" name="email">
-    <label>Password</label></label>
-    <input type="password" name="psw">
-    <div class="center">
-        <input type="submit" name="submit" value="Create Account!" class="btn-brand z-depth-0">
+
+<head>
+    <link rel="stylesheet" href="styles/user-styles.css">
+</head>
+
+<body>
+    <?php include('templates/header.php'); ?>
+    <div class="profile">
+        <h4>User Settings</h4>
     </div>
-</form>
+</body>
+
+
 
 <!-- Displaying error if username already exists-->
 
 <?php if ($userExists == false): ?>
     <?php
-    $sql = "INSERT INTO users
-            ( username, first_name, last_name, email,psw ) 
-            VALUES
-            ('$username', '$first_name', '$last_name', '$email', '$psw')";
-    echo "user created";
+    $sql = "INSERT INTO users(username,first_name,last_name,email,psw) VALUES('$username', '$first_name', '$last_name', '$email', '$psw')";
 
-    $result = mysqli_query($conn, $sql);
-    $userLoggedIn = true;
-    echo "<script> location.href='/shopaby/home.php'; </script>";
-    exit;
 ?>
 <?php else: ?>
     <?php if ($noInput == true): ?>
