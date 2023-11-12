@@ -8,7 +8,6 @@
 </head>
 
 <body>
-  <div class="scroll-container">
     <div class="gen-body-div">
       <h4 class="page-center-title">explore listings</h4>
       <div class="scroll-container">

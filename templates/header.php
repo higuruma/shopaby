@@ -1,7 +1,6 @@
 <?php
 include('config/db_connect.php');
 
-
 // write query for all users
 // SELECT = RETRIEVE, FROM = GET FROM
 // star (*) means u want all the columns for each record
@@ -30,7 +29,11 @@ $result = mysqli_query($conn, $sql);
 $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
-// Check if person is logged in
+$array = [];
+$array[] = 'Hi';
+$array[] = 'you';
+$array[] = 'suck';
+echo '<pre> 2nd'; print_r($array); echo '</pre>';
 
 ?>
 
@@ -88,7 +91,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         </div>
         <div class="nav-elements">
-            <a href="#album.php" class="icons" id="pink-album"><i class="fa fa-book" alt="view my album"></i></a>
+            <a href="album.php" class="icons" id="pink-album"><i class="fa fa-book" alt="view my album"></i></a>
         </div>
     </div>
     <hr class="color-hr">
