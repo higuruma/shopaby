@@ -38,7 +38,6 @@
             <button class="add">add to album</button>
           </div>
         <?php } ?>
-
       </div>
     </div>
   </div>
