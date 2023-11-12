@@ -106,6 +106,7 @@ if (isset($_POST['submit'])) {
                 if (htmlspecialchars($un['username']) == htmlspecialchars($username)) {
                     $userExists = true;
                     $noInput = false;
+
                     break;
                 }
             }
@@ -155,7 +156,6 @@ if (isset($_POST['submit'])) {
             ( username, first_name, last_name, email,psw ) 
             VALUES
             ('$username', '$first_name', '$last_name', '$email', '$psw')";
-    echo "user created";
 
     $result = mysqli_query($conn, $sql);
     $currentUser = $username;
@@ -176,5 +176,4 @@ if (isset($_POST['submit'])) {
 <?php endif; ?>
 
 <?php include('templates/footer.php'); ?>
-
 </html>

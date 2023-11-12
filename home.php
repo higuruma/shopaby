@@ -1,3 +1,4 @@
+<?php include('templates/header.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -7,31 +8,33 @@
 </head>
 
 <body>
+
   <div class="gen-body-div">
-    <?php include('templates/header.php'); ?>
     <h4 class="page-center-title">explore listings</h4>
-    <?php echo var_dump($currentUser)?>
-    <div class="card-scroll">
-      <?php foreach ($users as $user) { ?>
-        <div class="card">
-          <div class="card-image"></div>
-          <div class="card-header">
-            <div class="card-name">
+    <div class="scroll-container">
+      <div class="card-scroll">
+        <?php foreach ($users as $user) { ?>
+          <div class="card">
+            <div class="card-image"></div>
+            <div class="card-header">
+              <div class="card-name">
+                <?php echo htmlspecialchars($user['first_name']) ?>
+              </div>
+              <div class="card-price">
+                <?php echo htmlspecialchars($user['user-id']) ?>
+              </div>
+            </div>
+            <div class="card-list-date">
               <?php echo htmlspecialchars($user['first_name']) ?>
             </div>
-            <div class="card-price">
-              <?php echo htmlspecialchars($user['user-id']) ?>
-            </div>
+            <button class="add">add to album</button>
           </div>
-          <div class="card-list-date">
-            <?php echo htmlspecialchars($user['first_name']) ?>
-          </div>
-          <button class="add">add to album</button>
-        </div>
-      <?php } ?>
+        <?php } ?>
 
+      </div>
     </div>
   </div>
+
 </body>
 
 <?php include('templates/footer.php') ?>
