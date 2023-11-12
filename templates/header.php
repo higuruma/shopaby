@@ -28,13 +28,6 @@ $result = mysqli_query($conn, $sql);
 
 $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-
-$array = [];
-$array[] = 'Hi';
-$array[] = 'you';
-$array[] = 'suck';
-echo '<pre> 2nd'; print_r($array); echo '</pre>';
-
 ?>
 
 
@@ -47,6 +40,7 @@ echo '<pre> 2nd'; print_r($array); echo '</pre>';
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles/header-styles.css">
     <link rel="stylesheet" href="styles/gen-body-styles.css">
+    <link rel="stylesheet" href="styles/add-listing-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
