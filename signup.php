@@ -5,6 +5,7 @@ include('config/db_connect.php');
 //$_GET is a global array in php
 //checking if 'submit' has been initialized/pressed
 $username = $first_name = $last_name = $email = $psw = '';
+$id;
 $errors = array('username' => '', 'first_name' => '', 'last_name' => '', 'email' => '', 'psw' => '');
 $noInput = true;
 $userExists = true;
@@ -132,7 +133,7 @@ if (isset($_POST['submit'])) {
 <html>
 <?php include('templates/header.php'); ?>
 <h4 class="center">Sign Up Now!</h4>
-<form class="input_form" action="/shopaby/signup.php" class="white" method="POST">
+<form class="input-form" action="/shopaby/signup.php" class="white" method="POST">
     <label>Username</label></label>
     <input type="text" name="username">
     <label>First Name</label></label>
@@ -153,12 +154,17 @@ if (isset($_POST['submit'])) {
 <?php if ($userExists == false): ?>
     <?php
     $sql = "INSERT INTO users
-            ( username, first_name, last_name, email,psw ) 
+            ( username, first_name, last_name, email, psw ) 
             VALUES
             ('$username', '$first_name', '$last_name', '$email', '$psw')";
 
     $result = mysqli_query($conn, $sql);
-    $currentUser = $username;
+
+    // select current user's id from database
+    $sql = "SELECT id FROM users WHERE username = '$username'";
+    $result = mysqli_query($conn, $sql);
+    $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $_SESSION["currentUser"] = intval($users[0]['id']);
     $noInput = false;
     $userLoggedIn = true;
     echo "<script> location.href='/shopaby/home.php'; </script>";

@@ -5,6 +5,7 @@ include('config/db_connect.php');
 //$_GET is a global array in php
 //checking if 'submit' has been initialized/pressed
 $username = $psw = '';
+$id;
 $errors = array('username' => '', 'psw'=>'');
 $noInput = true;
 
@@ -39,7 +40,7 @@ if(isset($_POST['submit'])){
         //username validation
         // checkUsername($username);
         
-        $sql = "SELECT username, psw FROM users WHERE username = '$username'";
+        $sql = "SELECT username, psw, id FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
         // var_dump($result);
         
@@ -57,7 +58,7 @@ if(isset($_POST['submit'])){
             foreach($found_user as $fu){
                 if(htmlspecialchars($fu['psw']) == htmlspecialchars($psw)){
                     $pswCorrect = true;
-                    $currentUser = $username;
+                    $_SESSION["currentUser"] = intval($fu['id']);
                 }else{
                     // echo "pw is wrong";
                     // var_dump($fu['psw']);
@@ -90,7 +91,7 @@ if(isset($_POST['submit'])){
 <input type = "submit" name = "submit" value = "Login!" class = "btn-brand z-depth-0">
 </div>
 </form> -->
-<form class="input_form" action="/shopaby/login.php" method="POST">
+<form class="input-form" action="/shopaby/login.php" method="POST">
     <label>Username</label></label>
     <input type="text" name="username" placeholder="Your username..">
     <label>Password</label></label>
@@ -102,7 +103,6 @@ if(isset($_POST['submit'])){
 <?php if($userFound == true): ?>
 <?php if($pswCorrect == true): ?>
 <?php 
-        $currentUser = $username;
         $userLoggedIn = true;
         echo "<script> location.href='/shopaby/home.php'; </script>";
         exit;

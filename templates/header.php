@@ -28,13 +28,6 @@ $result = mysqli_query($conn, $sql);
 
 $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-
-$array = [];
-$array[] = 'Hi';
-$array[] = 'you';
-$array[] = 'suck';
-echo '<pre> 2nd'; print_r($array); echo '</pre>';
-
 ?>
 
 
@@ -61,7 +54,7 @@ echo '<pre> 2nd'; print_r($array); echo '</pre>';
             <img src="assets/images/shopaby_logo_pink.png" alt="shopaby" id="pink-logo" />
         </div>
         <div class="nav-elements">
-            <a href="index.php" class="brand-text">shopaby</a>
+            <a href="home.php" class="brand-text">shopaby</a>
         </div>
         <div class="nav-elements">
             <a href="album" class="icons"><i class="fa fa-search"></i></a>

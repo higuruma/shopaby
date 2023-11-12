@@ -49,7 +49,7 @@ input[type="submit"]:hover {
     background-color: #febdce;
 }
 
-.input_form {
+.input-form {
     font-family: 'Dongle';
     font-size: 30px;
     color: #000000;
@@ -172,7 +172,7 @@ h4.page-center-title {
     align-self: end;
 }
 
-.card-list-date {
+.card-list-seller {
     margin-left: 10px;
     background-color: purple;
     height: 10x;
