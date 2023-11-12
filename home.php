@@ -21,7 +21,6 @@ $result = mysqli_query($conn, $sql);
 // returns $result as associative array
 
 $listings = mysqli_fetch_all($result, MYSQLI_ASSOC);
-echo $listings[0]["user_id"];
 
 // Have to get from result the array that want
 // fetch resulting rows
