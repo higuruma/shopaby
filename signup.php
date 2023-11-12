@@ -85,7 +85,6 @@ if (isset($_POST['submit'])) {
 
     if (array_filter($errors)) {
         echo "errors in form";
-        var_dump($errors);
     } else {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
@@ -97,7 +96,6 @@ if (isset($_POST['submit'])) {
         // checkUsername($username);
         $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
-
         $userExists = false;
 
         if ($result) {
@@ -113,7 +111,6 @@ if (isset($_POST['submit'])) {
                 }
             }
 
-           // $userExists = false;
         } else {
             echo "error";
         }
@@ -160,21 +157,15 @@ if (isset($_POST['submit'])) {
             VALUES
             ('$username', '$first_name', '$last_name', '$email', '$psw')";
 
-    // make query and get result
-    // uses $conn variable ref to connect
-    
-    
     $result = mysqli_query($conn, $sql);
-  
-    // Have to get from result the array that want
-    // fetch resulting rows
-    // returns $result as associative array
-
-
+    $currentUser = $username;
+    $noInput = false;
+    $userLoggedIn = true;
+    echo "<script> location.href='/shopaby/home.php'; </script>";
+    exit;
 ?>
 <?php else: ?>
     <?php if ($noInput == true): ?>
-        <?php echo "first time"; ?>
         <!-- Do nothing if first time loading page -->
     <?php else: ?>
         <div class="alert">
