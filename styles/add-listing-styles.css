@@ -1,0 +1,181 @@
+
+body{
+    font-family: 'Dongle';
+}
+
+.brand {
+    color: #ffffff;
+}
+
+.gen-body-div {
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    height: 75vh;
+    overflow: scroll;
+    box-shadow: 0px 8px 16px 0px #ffe5ecc2;
+}
+
+/* Sign In/Up Form Styling */
+#add-form {
+    font-family: 'Dongle';
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 90vh;
+    font-size: 25px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+.input-label{
+    font-family: 'Dongle';
+    font-size: 40px;
+    color: black;
+    margin-top: 15px;
+}
+
+p.input-advice{
+    color: grey;
+    margin: 5px 0px 20px;
+    font-size: 20px;
+    padding: 0px;
+    line-height: 80%;
+}
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-color: #febdce;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-color: #febdce;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#pq-row{
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+}
+
+.pq-column{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: left;
+    display: flex;
+    margin: auto;
+    margin-left: 0px;
+}
+
+.number-input{
+    width: 50%;
+    margin-left: 20px;
+    margin-right: 50px;
+    border-color: #febdce;
+    border-radius: 15px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    width: 30%;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: 2px solid #febdce;
+    color: #febdce;
+    text-decoration: none;
+    margin: 15px;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+.custom-file-upload:hover {
+    color: white;
+    transition-duration: 0.4s;
+    background-color: #febdce;
+}
+
+.submit-div{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+#submit-listing {
+    font-family: 'Dongle';
+    font-size: 25px;
+    width: 40%;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: 2px solid #febdce;
+    color: black;
+    padding: 24px 24px;
+    text-decoration: none;
+    margin: 10px 2px 20px;
+    cursor: pointer;
+}
+
+#submit-listing:hover{
+    color: white;
+    transition-duration: 0.4s;
+    background-color: #febdce;
+}
+
+
+/* Alert Dialog Styling */
+.alert {
+    border-radius: 25px;
+    border: 2px solid #ff8fab;
+    margin-right: 25%;
+    margin-left: 25%;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    color: black;
+}
+
+.closebtn {
+
+    margin-left: 15px;
+    color: #ff8fab;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: #fadde1;
+}
+
+/* Title Stylings */
+
+h4.add-center-title {
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+
+    text-align: center;
+    font-family: 'Dongle';
+    color: white;
+
+}

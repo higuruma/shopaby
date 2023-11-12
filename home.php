@@ -10,6 +10,14 @@
 <body>
 
   <div class="gen-body-div">
+    <?php if (isset($_POST['add-page-btn'])) {
+      echo "<script> location.href='/shopaby/add.php'; </script>";
+      exit;
+    }
+    ?>
+    <form method="post">
+      <input type="submit" name="add-page-btn" value="add-page-btn" />
+    </form>
     <h4 class="page-center-title">explore listings</h4>
     <div class="scroll-container">
       <div class="card-scroll">
