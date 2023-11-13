@@ -5,6 +5,7 @@ include('config/db_connect.php');
 //$_GET is a global array in php
 //checking if 'submit' has been initialized/pressed
 $username = $psw = '';
+$id;
 $errors = array('username' => '', 'psw'=>'');
 $noInput = true;
 
@@ -40,6 +41,7 @@ if(isset($_POST['submit'])){
         // checkUsername($username);
         
         $sql = "SELECT id, username, psw FROM users WHERE username = '$username'";
+
         $result = mysqli_query($conn, $sql);
         // var_dump($result);
         

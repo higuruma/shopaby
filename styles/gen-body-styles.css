@@ -111,14 +111,13 @@ h4.page-center-title {
     width: 100%;
     padding: 0;
     height: 75vh;
-    box-shadow: 0px 8px 16px 0px #ffe5ecc2;
 }
 
 
 .card-scroll {
     margin-right: 10px;
     margin-bottom: 0px;
-    background-color: green;
+    background-color: #ffffff83;
     align-items: start;
     display: flex;
     flex-wrap: wrap;
@@ -127,16 +126,17 @@ h4.page-center-title {
 }
 
 .card {
-    margin-left: 50px;
-    margin-right: 20px;
+    margin-left: 40px;
+    margin-right: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 5px;
     font-family: 'Dongle';
     text-align: center;
-    width: 200px;
+    width: 210px;
+    background-color: white;
     color: #000000;
-    background-color: blue;
+    border: solid 2px #000000;
 
 
 }
@@ -146,8 +146,8 @@ h4.page-center-title {
     padding: 5px;
     margin-left: auto;
     margin-right: auto;
-    background-color: red;
-    width: 190px;
+    background-color: #febcde;
+    width: 200px;
     height: 200px;
 }
 
@@ -157,7 +157,6 @@ h4.page-center-title {
 }
 
 .card-name {
-    background-color: yellow;
     font-size: 25px;
     width: 40%;
     text-align: start;
@@ -165,20 +164,34 @@ h4.page-center-title {
 }
 
 .card-price {
-    background-color: brown;
     font-size: 25px;
     width: 40%;
     text-align: end;
     align-self: end;
+
 }
 
-.card-list-date {
+.card-list-seller {
     margin-left: 10px;
-    background-color: purple;
     height: 10x;
     font-size: 20px;
     text-align: start;
     align-self: start;
+}
+
+.add-to-album-button{
+    padding: 5px;
+    height: 40px;
+    width: 100px;
+    color: #000000;
+    text-align: center;
+    font-family: 'Dongle';
+    font-size: 20px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #febcde;
+    line-height: 0px;
+
 }
 
 /* Adjust amount of listings depending on window size */
@@ -187,6 +200,7 @@ h4.page-center-title {
     .card-scroll {
         width: 870px;
     }
+
 }
 @media screen and (max-width: 1160px) and (min-width: 870px){
     .card-scroll {
