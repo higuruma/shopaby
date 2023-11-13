@@ -62,7 +62,7 @@ input[type="submit"]:hover {
 }
 
 /* Alert Dialog Styling */
-.alert {
+ .alert {
     border-radius: 25px;
     border: 2px solid #ff8fab;
     margin-right: 25%;
@@ -87,7 +87,7 @@ input[type="submit"]:hover {
 
 .closebtn:hover {
     color: #fadde1;
-}
+}  */
 
 /* Title Stylings */
 
@@ -147,8 +147,17 @@ h4.page-center-title {
     margin-left: auto;
     margin-right: auto;
     background-color: #febcde;
+    background-size: cover;
+    object-fit: contain;
     width: 200px;
     height: 200px;
+    overflow: hidden;
+}
+.card-image-file {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    
 }
 
 .card-header {

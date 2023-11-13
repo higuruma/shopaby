@@ -17,7 +17,7 @@ body{
 }
 
 /* Sign In/Up Form Styling */
-#add-form {
+ #add-form {
     font-family: 'Dongle';
     font-size: 30px;
     display: flex;
@@ -108,7 +108,7 @@ input[type="file"] {
     color: white;
     transition-duration: 0.4s;
     background-color: #febdce;
-}
+} 
 
 .submit-div{
     flex-wrap: wrap;

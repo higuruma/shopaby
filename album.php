@@ -7,7 +7,7 @@ $sql = "SELECT DISTINCT
       listings.seller_name, 
       listings.user_id, 
       listings.price, 
-      listings.listing_image, 
+      listings.listing_image;
       albums.u_id, 
       albums.listing_id 
   FROM 
@@ -45,7 +45,9 @@ $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php foreach ($albums as $album) { ?>
           <?php if (intval($_SESSION["currentUser"]) == intval($album['u_id'])) { ?>
             <div class="card">
-              <div class="card-image"></div>
+              <div class="card-image">
+              <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($listing['listing_image']); ?>" /> 
+              </div>
               <div class="card-header">
                 <div class="card-name">
                   <?php echo htmlspecialchars($album['listing_name']) ?>

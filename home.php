@@ -37,8 +37,6 @@ if (isset($add)) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 
@@ -48,20 +46,12 @@ if (isset($add)) {
 
 <body>
   <div class="gen-body-div">
-    <?php if (isset($_POST['add-page-btn'])) {
-      echo "<script> location.href='/shopaby/add.php'; </script>";
-      exit;
-    }
-    ?>
-    <form method="post">
-      <input type="submit" name="add-page-btn" value="add-page-btn" />
-    </form>
     <h4 class="page-center-title">explore listings</h4>
     <div class="scroll-container">
       <div class="card-scroll">
         <?php foreach ($listings as $listing) { ?>
           <div class="card">
-            <div class="card-image"></div>
+            <div class="card-image"><img class= "card-image-file" src="data:image/jpg;charset=utf8;base64,<?php echo stripcslashes(base64_encode($listing['listing_image'])); ?>" /> </div>
             <div class="card-header">
               <div class="card-name">
                 <?php echo htmlspecialchars($listing['listing_name']) ?>

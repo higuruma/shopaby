@@ -73,13 +73,13 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <div class="dropdown-content">
                     <a href="login.php">login</a>
                     <a href="signup.php">sign up</a>
-                    
+
                 </div>
             <?php else: ?>
                 <div class="dropdown-content">
                     <a href="user.php">my profile</a>
-                    <button onclick="<?php $userLoggedIn = false; ?>">Hello</button>
-            
+                    <a href="add.php">add a listing</a>
+
                 </div>
             <?php endif; ?>
 
