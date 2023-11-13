@@ -47,7 +47,6 @@ if (isset($add)) {
 </head>
 
 <body>
-
   <div class="gen-body-div">
     <h4 class="page-center-title">explore listings</h4>
     <div class="scroll-container">
@@ -68,10 +67,10 @@ if (isset($add)) {
             </div>
             <!-- <form method="post" id= "id-<?php echo htmlspecialchars($listing['listing_id']) ?>"> -->
             <!-- <?php echo htmlspecialchars($listing['listing_id']) ?> -->
-            <form method="get" >
+            <form method="get">
               <input type="hidden" name="q" value="<?php echo $q ?>">
               <input type="hidden" name="add-listing" value="<?php echo htmlspecialchars($listing['listing_id']) ?>">
-              <input type="submit" name="submit" />
+              <input class="add-to-album-button" type="submit" name="submit" value="add to album" />
             </form>
 
           </div>
