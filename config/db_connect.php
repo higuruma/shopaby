@@ -13,7 +13,9 @@ $albums_conn = mysqli_connect($hostURL, $db_username, $db_password, $db_name);
 $listings_conn = mysqli_connect($hostURL, $db_username, $db_password, $db_name);
 
 session_start();
+
 $_SESSION["currentUser"];
+$currentUser;
 $userLoggedIn = false;
 
 //check connection

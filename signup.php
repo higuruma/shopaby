@@ -10,31 +10,6 @@ $errors = array('username' => '', 'first_name' => '', 'last_name' => '', 'email'
 $noInput = true;
 $userExists = true;
 
-// function checkUsername($username, $conn){
-//     $userExists = false;
-//         $sql = "SELECT * FROM users WHERE username = '$username'";
-//         $result = mysqli_query($conn, $sql);
-
-//         if($result){
-
-//             $usernames = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-//             foreach($usernames as $un){
-//                 echo htmlspecialchars($un['username']);
-//                 echo "|";
-//                 echo htmlspecialchars($username);
-//                 if(htmlspecialchars($un['username']) == htmlspecialchars($username)){
-//                     echo "2";
-//                     $userExists = true;
-//                     break;
-//                 }
-//             }
-
-//         }else{
-//             echo "error";
-//         }
-// } doesnt work for some reason :skull:
-
 if (isset($_POST['submit'])) {
 
     //check username
@@ -164,6 +139,7 @@ if (isset($_POST['submit'])) {
     $sql = "SELECT id FROM users WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
     $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
     $_SESSION["currentUser"] = intval($users[0]['id']);
     $noInput = false;
     $userLoggedIn = true;

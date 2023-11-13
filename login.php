@@ -40,7 +40,8 @@ if(isset($_POST['submit'])){
         //username validation
         // checkUsername($username);
         
-        $sql = "SELECT username, psw, id FROM users WHERE username = '$username'";
+        $sql = "SELECT id, username, psw FROM users WHERE username = '$username'";
+
         $result = mysqli_query($conn, $sql);
         // var_dump($result);
         
@@ -53,8 +54,9 @@ if(isset($_POST['submit'])){
         }else{
             $userFound = true;
             $found_user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            // echo "found user";
-            // var_dump($found_user);
+
+            echo "found user";
+            var_dump($found_user);
             foreach($found_user as $fu){
                 if(htmlspecialchars($fu['psw']) == htmlspecialchars($psw)){
                     $pswCorrect = true;
@@ -104,8 +106,8 @@ if(isset($_POST['submit'])){
 <?php if($pswCorrect == true): ?>
 <?php 
         $userLoggedIn = true;
-        echo "<script> location.href='/shopaby/home.php'; </script>";
-        exit;
+        // echo "<script> location.href='/shopaby/home.php'; </script>";
+        // exit;
         ?>
 <?php elseif($pswCorrect == false):?>
 <!-- Otherwise, if user found but password not true, show wrong password dialog -->
