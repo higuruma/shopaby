@@ -27,7 +27,6 @@ $result = mysqli_query($conn, $sql);
 
 $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-
 ?>
 
 <!DOCTYPE html>
