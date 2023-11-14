@@ -10,6 +10,7 @@
 
 $q = $_GET['q'];
 $r = $_GET['r'];
+
 $sql = "SELECT listing_id, listing_name, user_id, seller_name, price, listing_image, created_at FROM listings WHERE LOWER(listing_name) LIKE LOWER('%$q%') ORDER BY created_at";
 
 // make query and get result
@@ -76,8 +77,7 @@ if (isset($view)) {
               <div class="card-list-seller">
                 <?php echo htmlspecialchars($listing['seller_name']) ?>
               </div>
-              <!-- <form method="post" id= "id-<?php echo htmlspecialchars($listing['listing_id']) ?>"> -->
-              <!-- <?php echo htmlspecialchars($listing['listing_id']) ?> -->
+              
               <form method="get">
                 <input type="hidden" name="q" value="<?php echo $q ?>">
                 <input type="hidden" name="add-listing" value="<?php echo htmlspecialchars($listing['listing_id']) ?>">
@@ -86,7 +86,7 @@ if (isset($view)) {
               <form method="get">
                 <input type="hidden" name="r" value="<?php echo $r ?>">
                 <input type="hidden" name="view-listing" value="<?php echo htmlspecialchars($listing['listing_id']) ?>">
-                <input class="add-to-album-button" type="submit" name="submit" value="view" />
+                <input class="view-listing-button" type="submit" name="submit" value="view" />
               </form>
           </a>
         </div>

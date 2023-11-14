@@ -86,7 +86,7 @@ if(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html>
 <?php include('templates/header.php'); ?>
-<!-- <h4 class = "center">Login</h4>
+<!-- <h4 class="center">Login</h4>
 <form action = "login.php" class = "white" method = "POST">
 <label>Username</label></label>
 <input type = "text" name = "username">
@@ -102,7 +102,7 @@ if(isset($_POST['submit'])){
     <label>Password</label></label>
     <input type="password" name="psw" placeholder="Your password..">
     <div class="center">
-        <input type="submit" name="submit" value="Login!">
+        <input class="login-button" type="submit" name="submit" value="Login!">
     </div>
 </form>
 <?php if($userFound == true): ?>

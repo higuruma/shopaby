@@ -81,7 +81,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <a href="listings.php">my listings</a>
                     <a href="add.php">add a listing</a>
                     <a href=""><form action="logout.php" method="get">
-                        <input class="add-to-album-button" type="submit" value="logout">
+                        <input class="dropdown-button" type="submit" value="logout">
                     </form></a>
                     
 

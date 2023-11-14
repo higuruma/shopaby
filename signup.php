@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
     <label>Password</label></label>
     <input type="password" name="psw">
     <div class="center">
-        <input type="submit" name="submit" value="Create Account!" class="btn-brand z-depth-0">
+        <input type="submit" name="submit" value="Create Account!" class="login-button" >
     </div>
 </form>
 

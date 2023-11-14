@@ -1,15 +1,20 @@
-
-body{
+body {
     font-family: 'Dongle';
 }
 
 .brand {
     color: #ffffff;
 }
+
 a {
     color: black;
-    text-decoration: none; /* no underline */
-  }
+    text-decoration: none;
+    /* no underline */
+}
+
+.center {
+    color: white;
+}
 
 .gen-body-div {
     background-color: #ffffff;
@@ -29,15 +34,18 @@ select {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 1px;
+    border-style: solid;
+    border-color: #febcde;
     box-sizing: border-box;
 }
 
 input[type="submit"] {
     width: 90%;
-    padding: 5px;
     text-align: center;
     background-color: #ffffff;
+    border-radius: 25px;
+    width: 100%;
     text-decoration: none;
     cursor: pointer;
 }
@@ -48,6 +56,22 @@ input[type="submit"]:hover {
     background-color: #febcde;
 }
 
+.login-button {
+    color: #000000;
+    text-align: center;
+    font-family: 'Dongle';
+    font-size: 20px;
+    border-radius: 30px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #febcde;
+    line-height: 0px;
+    padding: 24px 24px;
+    text-decoration: none;
+    margin: 20px 2px;
+    cursor: pointer;
+}
+
 .input-form {
     font-family: 'Dongle';
     font-size: 30px;
@@ -56,10 +80,12 @@ input[type="submit"]:hover {
     flex-direction: column;
     max-width: 50vh;
     font-size: 25px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
 /* Alert Dialog Styling */
- .alert {
+.alert {
     border-radius: 25px;
     border: 2px solid #ff8fab;
     margin-right: 25%;
@@ -86,11 +112,11 @@ input[type="submit"]:hover {
     color: #fadde1;
 }
 
-.dropdown-button{
+.dropdown-button {
     color: #000000;
     text-align: center;
     font-family: 'Dongle';
-    font-size: 20px;
+    font-size: 17px;
     border-style: none;
     border-color: #febcde;
     line-height: 0px;
@@ -98,7 +124,7 @@ input[type="submit"]:hover {
 }
 
 /* Title Stylings */
-h4{
+h4 {
     font-size: 50px;
     margin-top: 10px;
     margin-bottom: 0px;
@@ -168,11 +194,12 @@ h4.page-center-title {
     height: 200px;
     overflow: hidden;
 }
+
 .card-image-file {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    
+
 }
 
 .card-header {
@@ -203,7 +230,7 @@ h4.page-center-title {
     align-self: start;
 }
 
-.add-to-album-button{
+.add-to-album-button {
     padding: 5px;
     margin-bottom: 2%;
     height: 30px;
@@ -213,12 +240,14 @@ h4.page-center-title {
     font-family: 'Dongle';
     font-size: 20px;
     border-radius: 30px;
+    border-width: 2px;
     border-style: solid;
     border-color: #febcde;
     line-height: 0px;
 
 }
-.view-listing-button{
+
+.view-listing-button {
     padding: 5px;
     height: 30px;
     width: 30%;
@@ -232,7 +261,8 @@ h4.page-center-title {
     line-height: 0px;
 
 }
-.dropdown-button{
+
+.dropdown-button {
     padding: 5px;
     margin-bottom: 2%;
     height: 30px;
@@ -240,48 +270,130 @@ h4.page-center-title {
     color: #000000;
     text-align: center;
     font-family: 'Dongle';
-    font-size: 20px;
+    font-size: 17px;
     border-radius: 30px;
-    border-style: solid;
+    border-style: none;
     border-color: #febcde;
     line-height: 0px;
 
 }
 
 /* Display Listing Styles*/
+.display-container {
+    margin-left: 50px;
+    background-color: #ffffff;
+    height: fit-content;
+    padding: 0px;
+    border-style: none;
+    align-items: center;
+    
+}
+
+.spacer{
+    height: 100px;
+}
+
 
 .display {
+    min-width: 450px;
     margin-left: auto;
     margin-right: auto;
-    padding: 5px;
     font-family: 'Dongle';
-    text-align: center;
+    text-align: start;
     width: 100%;
-    background-color: white;
+    background-color: #ffffff;
     color: #000000;
     display: block;
-    align-items: center;
-    border: solid 2px #000000;
+    align-items: start;
+    border: none;
+    height: fit-content;
 
 
 }
 
 .display-image {
-    padding: 5px;
+    min-width: 450px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #febcde;
+    background-color: #ffffff;
     background-size: cover;
     object-fit: contain;
-    width: 600;
-    height: 600;
+    width: 400px;
+    height: 400px;
     overflow: hidden;
 }
+
 .display-image-file {
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
-    
+
+}
+.display-content {
+    min-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    background-size: cover;
+    object-fit: contain;
+    width: 400px;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.display-price{
+    font-size: 25px;
+    width: 40%;
+    text-align: start;
+    align-items: start;
+    margin-top: 5%;
+    border: 2px solid #febcde;
+    padding-left: 5px;
+
+}
+
+.display-seller{
+    font-size: 25px;
+    height: 40px;
+    width: 40%;
+    text-align: start;
+    align-items: end;
+    margin-top: 5%;
+    border: 2px solid #febcde;
+    border-radius: 0px;
+    padding-left: 5px;
+}
+
+.display-description{
+    font-size: 25px;
+    width: 400px;
+    height: fit-content;
+    text-align: start;
+    align-items: end;
+    margin-top: 5%;
+    border: 2px solid #febcde;
+    padding-left: 5px;
+}
+#display-add-to-album-button {
+    padding: 5px;
+    margin-top: 5%;
+    margin-bottom: 100px;
+    height: 40px;
+    width: 200px;
+    color: #000000;
+    text-align: center;
+    font-family: 'Dongle';
+    font-size: 25px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #febcde;
+    line-height: 0px;
+
+}
+#display-add-to-album-button:hover {
+    color: white;
+    transition-duration: 0.4s;
+    background-color: #febcde;
 }
 
 /* Adjust amount of listings depending on window size */
@@ -292,13 +404,14 @@ h4.page-center-title {
     }
 
 }
-@media screen and (max-width: 1160px) and (min-width: 870px){
+
+@media screen and (max-width: 1160px) and (min-width: 870px) {
     .card-scroll {
         width: 1160px;
     }
 }
 
-@media screen and (max-width: 1440px) and (min-width: 1160px){
+@media screen and (max-width: 1440px) and (min-width: 1160px) {
     .card-scroll {
         width: 1430px;
     }

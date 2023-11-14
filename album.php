@@ -29,7 +29,20 @@ $result = mysqli_query($conn, $sql);
 
 $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+$q = $_GET['q'];
 
+$del = $_GET['delete-listing'];
+if (isset($del)) {
+  // $listing_id = intval($listing['listing_id']);
+  $listing_id = intval($del);
+  $u_id = intval($_SESSION["currentUser"]);
+ $sql = "DELETE FROM albums WHERE listing_id = '$listing_id' AND u_id = '$u_id'";
+  if ($conn->query($sql) === TRUE) {
+    header("Location: album.php");
+ } else {
+     echo "Error deleting record: " . $conn->error;
+ }
+}
 
 ?>
 
@@ -66,6 +79,11 @@ $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <div class="card-list-seller">
                   added: <?php echo htmlspecialchars($album['added_at']) ?>
                 </div>
+                <form method="get">
+              <input type="hidden" name="q" value="<?php echo $q ?>">
+              <input type="hidden" name="delete-listing" value="<?php echo htmlspecialchars($album['listing_id']) ?>">
+              <input class="add-to-album-button" type="submit" name="submit" value="remove" />
+            </form>
             </div>
           <?php } ?>
         <?php } ?>
