@@ -1,23 +1,22 @@
 <?php include('templates/header.php');
 
 
-$sql = "SELECT DISTINCT
+$sql = "SELECT  
       listings.listing_id, 
       listings.listing_name, 
       listings.seller_name, 
       listings.user_id, 
       listings.price, 
       listings.listing_image,
-      albums.u_id, 
-      albums.listing_id,
-      albums.added_at 
+      listings.created_at,
+      users.id
   FROM 
-    listings INNER JOIN albums ON listings.listing_id=albums.listing_id 
-    WHERE albums.u_id = $_SESSION[currentUser]
+    listings INNER JOIN users ON listings.user_id=users.id 
+    WHERE users.id = $_SESSION[currentUser]
     ;"
 ;
 
-// echo intval($_SESSION['currentUser']);
+ echo intval($_SESSION['currentUser']);
 // make query and get result
 // uses $conn variable ref to connect
 
@@ -42,11 +41,10 @@ $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <body>
   <div class="gen-body-div">
-    <h4 class="page-center-title">my album</h4>
+    <h4 class="page-center-title">my listings</h4>
     <div class="scroll-container">
       <div class="card-scroll">
         <?php foreach ($albums as $album) { ?>
-          <?php if (intval($_SESSION["currentUser"]) == intval($album['u_id'])) { ?>
             <div class="card">
               <div class="card-image"><img class="card-image-file"
                   src="data:image/jpg;charset=utf8;base64,<?php echo stripcslashes(base64_encode($album['listing_image'])); ?>" />
@@ -64,10 +62,9 @@ $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
                   <?php echo htmlspecialchars($album['seller_name']) ?>
                 </div>
                 <div class="card-list-seller">
-                  added: <?php echo htmlspecialchars($album['added_at']) ?>
+                  added: <?php echo htmlspecialchars($album['created_at']) ?>
                 </div>
             </div>
-          <?php } ?>
         <?php } ?>
       </div>
     </div>

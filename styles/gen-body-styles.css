@@ -6,6 +6,10 @@ body{
 .brand {
     color: #ffffff;
 }
+a {
+    color: black;
+    text-decoration: none; /* no underline */
+  }
 
 .gen-body-div {
     background-color: #ffffff;
@@ -25,28 +29,23 @@ select {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
 input[type="submit"] {
     width: 90%;
+    padding: 5px;
     text-align: center;
     background-color: #ffffff;
-    border-radius: 25px;
-    border: 2px solid #febdce;
-    color: black;
-    padding: 24px 24px;
     text-decoration: none;
-    margin: 20px 2px;
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
     color: white;
     transition-duration: 0.4s;
-    background-color: #febdce;
+    background-color: #febcde;
 }
 
 .input-form {
@@ -57,8 +56,6 @@ input[type="submit"]:hover {
     flex-direction: column;
     max-width: 50vh;
     font-size: 25px;
-    margin: 30px auto;
-    padding: 20px;
 }
 
 /* Alert Dialog Styling */
@@ -87,15 +84,34 @@ input[type="submit"]:hover {
 
 .closebtn:hover {
     color: #fadde1;
-}  */
+}
+
+.dropdown-button{
+    color: #000000;
+    text-align: center;
+    font-family: 'Dongle';
+    font-size: 20px;
+    border-style: none;
+    border-color: #febcde;
+    line-height: 0px;
+
+}
 
 /* Title Stylings */
+h4{
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-family: 'Dongle';
+    color: #febcde;
+
+}
 
 h4.page-center-title {
     font-size: 50px;
     margin-top: 10px;
     margin-bottom: 0px;
-
     text-align: center;
     font-family: 'Dongle';
     color: #febcde;
@@ -140,7 +156,6 @@ h4.page-center-title {
 
 
 }
-
 
 .card-image {
     padding: 5px;
@@ -190,8 +205,9 @@ h4.page-center-title {
 
 .add-to-album-button{
     padding: 5px;
-    height: 40px;
-    width: 100px;
+    margin-bottom: 2%;
+    height: 30px;
+    width: 30%;
     color: #000000;
     text-align: center;
     font-family: 'Dongle';
@@ -201,6 +217,71 @@ h4.page-center-title {
     border-color: #febcde;
     line-height: 0px;
 
+}
+.view-listing-button{
+    padding: 5px;
+    height: 30px;
+    width: 30%;
+    color: #febcde;
+    text-align: center;
+    font-family: 'Dongle';
+    font-size: 20px;
+    border-radius: 30px;
+    border-style: none;
+    border-color: #febcde;
+    line-height: 0px;
+
+}
+.dropdown-button{
+    padding: 5px;
+    margin-bottom: 2%;
+    height: 30px;
+    width: 30%;
+    color: #000000;
+    text-align: center;
+    font-family: 'Dongle';
+    font-size: 20px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #febcde;
+    line-height: 0px;
+
+}
+
+/* Display Listing Styles*/
+
+.display {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    font-family: 'Dongle';
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    color: #000000;
+    display: block;
+    align-items: center;
+    border: solid 2px #000000;
+
+
+}
+
+.display-image {
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #febcde;
+    background-size: cover;
+    object-fit: contain;
+    width: 600;
+    height: 600;
+    overflow: hidden;
+}
+.display-image-file {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    
 }
 
 /* Adjust amount of listings depending on window size */

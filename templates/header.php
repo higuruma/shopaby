@@ -58,7 +58,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <a href="home.php" class="brand-text">shopaby</a>
         </div>
         <div class="nav-elements">
-            <a href="album" class="icons"><i class="fa fa-search"></i></a>
+            <a href="" class="icons"><i class="fa fa-search"></i></a>
         </div>
         <div class="search-div">
             <form id="search-form" method="get" action='/shopaby/home.php'>
@@ -69,7 +69,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <button class="dropbtn">
                 <i class="fa fa-bars"></i>
             </button>
-            <?php if ($userLoggedIn = false): ?>
+            <?php if($_SESSION["userLoggedIn"] == false): ?>
                 <div class="dropdown-content">
                     <a href="login.php">login</a>
                     <a href="signup.php">sign up</a>
@@ -78,7 +78,12 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <?php else: ?>
                 <div class="dropdown-content">
                     <a href="user.php">my profile</a>
+                    <a href="listings.php">my listings</a>
                     <a href="add.php">add a listing</a>
+                    <a href=""><form action="logout.php" method="get">
+                        <input class="add-to-album-button" type="submit" value="logout">
+                    </form></a>
+                    
 
                 </div>
             <?php endif; ?>

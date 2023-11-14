@@ -55,9 +55,8 @@ if (isset($_POST['submit'])) {
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
 
         if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            echo "uploading file successfully " ;
-        }
-        else {
+            echo "uploading file successfully ";
+        } else {
             echo "Error uploading file: " . $_FILES['image']['error'];
         }
 
@@ -88,6 +87,20 @@ if (isset($_POST['submit'])) {
         var_dump($errors);
     } else {
 
+        //username validation
+        $sql = "SELECT id, username FROM users WHERE id = '$currentUser'";
+        $result = mysqli_query($conn, $sql);
+
+        //obtain seller username and id
+        if ($result) {
+
+            $seller = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            // echo nl2br("\n  seller array ");
+            // var_dump($seller);
+            $seller_name = mysqli_real_escape_string($conn, $seller[0]['username']);
+            $user_id = mysqli_real_escape_string($conn, $seller[0]['id']);
+        }
+
         $fileTmpName = $_FILES["image"]["tmp_name"];
         $image = file_get_contents($fileTmpName);
 
@@ -108,73 +121,27 @@ if (isset($_POST['submit'])) {
         $stmt = $conn->prepare($insert_sql);
 
         // Bind parameters
-        // $stmt->bind_param("sssssbs", $listing_name, $seller_name, $user_id, $price, $quantity, $image, $listing_desc);
         $stmt->bind_param("ssidibs", $listing_name, $seller_name, $user_id, $price, $quantity, $image, $listing_desc);
 
-        // echo strlen($image);
-        // echo $stmt;
-        // echo "<script> location.href='/shopaby/home.php?test4=$stmt </script>";
-        // exit;
-        $stmt->send_long_data( 5, $image);
+        $stmt->send_long_data(5, $image);
         // Execute the statement
         if ($stmt->execute()) {
-            echo "Record inserted successfully.";
+            echo '<div class="alert">';
+            echo '<span class="closebtn" onclick="this.parentElement.style.display="none";">&times;</span>';
+            echo 'Listing added!';
+            echo '</div>';
+            echo "<script> location.href='/shopaby/home.php'; </script>";
+
+
         } else {
             echo "Error inserting record: " . $stmt->error;
         }
 
-        
+
 
         // Close the statement
         $stmt->close();
 
-        // //username validation
-        // // checkUsername($username);
-        // $sql = "SELECT id, username FROM users WHERE id = '$currentUser'";
-        // $result = mysqli_query($conn, $sql);
-
-        // if ($result) {
-
-        //     $seller = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        //     // echo nl2br("\n  seller array ");
-        //     // var_dump($seller);
-        //     $seller_name = mysqli_real_escape_string($conn, $seller[0]['username']);
-        //     $user_id = mysqli_real_escape_string($conn, $seller[0]['id']);
-        //     // echo nl2br(" \n seller name: ");
-        //     // var_dump($seller_name);
-        //     // echo nl2br("\n  user id: ");
-        //     // var_dump($user_id);
-
-        //     // echo nl2br(" \n listing: ");
-        //     // var_dump($listing_name);
-
-        //     $insert_sql = "INSERT INTO 
-        //                     listings ( listing_name, seller_name, user_id, price, quantity, listing_image, listing_desc ) 
-        //                     VALUES 
-        //                     ('$listing_name', '$seller_name', '$user_id', '$price', '$quantity', '$image', '$listing_desc' )";
-
-        //     // echo nl2br(" \n sql: ");
-        //     // var_dump($insert_sql);
-
-        //     $insert_result = mysqli_query($conn, $insert_sql);
-        //     // echo "<script> location.href='/shopaby/home.php'; </script>";
-        //     echo "<script> location.href='/shopaby/home.php?test1=$fileName&test2=$img_length'; </script>";
-        //     // echo "<script> location.href='/shopaby/home.php?test=$fileName'; </script>";
-        //     // echo "<script> location.href='/shopaby/home.php?test=$fileName </script>";
-        //     exit;
-
-        // } else {
-        //     echo "error";
-        // }
-        // //save to db
-        // if (mysqli_query($conn, $sql)) {
-        //     // header('Location: home.php');
-
-        // } else {
-        //     echo 'query error: ' . mysqli_error($conn);
-        // }
-
-       
     }
 }
 ?>
@@ -213,9 +180,6 @@ if (isset($_POST['submit'])) {
         background and with good lighting. Remember, other users will see this photo. A poor photo may influence their
         decision to buy from you.
     </p>
-    <label for="file-upload" class="custom-file-upload">
-        Upload Photo
-    </label>
     <input id="file-upload" type="file" name="image">
 
     <div class="submit-div">

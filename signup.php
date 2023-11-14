@@ -142,13 +142,15 @@ if (isset($_POST['submit'])) {
 
     $_SESSION["currentUser"] = intval($users[0]['id']);
     $noInput = false;
-    $userLoggedIn = true;
+    $_SESSION["userLoggedIn"] = true;
     echo "<script> location.href='/shopaby/home.php'; </script>";
     exit;
 ?>
 <?php else: ?>
-    <?php if ($noInput == true): ?>
+    <?php if ($noInput == true): 
+        ?>
         <!-- Do nothing if first time loading page -->
+        
     <?php else: ?>
         <div class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>

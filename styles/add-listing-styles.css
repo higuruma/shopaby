@@ -28,7 +28,7 @@ body{
     padding: 20px;
     background-color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: solid 10px;
 }
 .input-label{
     font-family: 'Dongle';
@@ -51,8 +51,9 @@ select {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border-color: #febdce;
+    border-color: #febcde;
     border-radius: 10px;
+    border-style: solid;
     box-sizing: border-box;
 }
 textarea{
@@ -60,7 +61,7 @@ textarea{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border-color: #febdce;
+    border-color: #febcde;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -84,12 +85,12 @@ textarea{
     width: 50%;
     margin-left: 20px;
     margin-right: 50px;
-    border-color: #febdce;
+    border-color: #febcde;
     border-radius: 15px;
 }
 
 input[type="file"] {
-    display: none;
+    display:inline;
 }
 
 .custom-file-upload {
@@ -97,9 +98,8 @@ input[type="file"] {
     text-align: center;
     background-color: #ffffff;
     border-radius: 25px;
-    border: 2px solid #febdce;
-    color: #febdce;
-    text-decoration: none;
+    border: 2px solid #fecde;
+    color: #febcde;
     margin: 15px;
     padding: 10px 10px;
     cursor: pointer;
@@ -107,7 +107,7 @@ input[type="file"] {
 .custom-file-upload:hover {
     color: white;
     transition-duration: 0.4s;
-    background-color: #febdce;
+    background-color: #febcde;
 } 
 
 .submit-div{
@@ -124,7 +124,7 @@ input[type="file"] {
     text-align: center;
     background-color: #ffffff;
     border-radius: 25px;
-    border: 2px solid #febdce;
+    border: 2px solid #febcde;
     color: black;
     padding: 24px 24px;
     text-decoration: none;
@@ -135,7 +135,7 @@ input[type="file"] {
 #submit-listing:hover{
     color: white;
     transition-duration: 0.4s;
-    background-color: #febdce;
+    background-color: #febcde;
 }
 
 

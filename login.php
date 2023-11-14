@@ -55,12 +55,13 @@ if(isset($_POST['submit'])){
             $userFound = true;
             $found_user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-            echo "found user";
-            var_dump($found_user);
+            //echo "found user";
+            //var_dump($found_user);
             foreach($found_user as $fu){
                 if(htmlspecialchars($fu['psw']) == htmlspecialchars($psw)){
                     $pswCorrect = true;
                     $_SESSION["currentUser"] = intval($fu['id']);
+                    $_SESSION["userLoggedIn"] = true;
                 }else{
                     // echo "pw is wrong";
                     // var_dump($fu['psw']);
@@ -74,6 +75,8 @@ if(isset($_POST['submit'])){
         } else {
             // echo 'query error: ' . mysqli_error($conn);
         }
+        echo "<script> location.href='/shopaby/home.php'; </script>";
+        exit();
     }
 }
 
@@ -105,7 +108,7 @@ if(isset($_POST['submit'])){
 <?php if($userFound == true): ?>
 <?php if($pswCorrect == true): ?>
 <?php 
-        $userLoggedIn = true;
+        $_SESSION["userLoggedIn"] = true;
         // echo "<script> location.href='/shopaby/home.php'; </script>";
         // exit;
         ?>
@@ -117,7 +120,9 @@ if(isset($_POST['submit'])){
 </div>
 <?php endif;?>
 <?php else:?>
-<?php if($noInput == true): ?>
+<?php if($noInput == true): 
+    $_SESSION["userLoggedIn"] = false;
+    ?>
 <!-- Do nothing if first time loading page -->
 <?php else:?>
 <div class="alert">

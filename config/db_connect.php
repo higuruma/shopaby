@@ -15,8 +15,10 @@ $listings_conn = mysqli_connect($hostURL, $db_username, $db_password, $db_name);
 session_start();
 
 $_SESSION["currentUser"];
+$_SESSION["userLoggedIn"];
+$_SESSION["currentListing"];
 $currentUser;
-$userLoggedIn = false;
+$userLoggedIn;
 
 //check connection
 if(!$conn){
@@ -26,7 +28,7 @@ if(!$conn1){
   echo 'Connection error (conn1): ' , mysqli_connect_error();
 }
 if(!$albums_conn){
-  echo 'AlbuConnection error: (albums table)' , mysqli_connect_error();
+  echo 'AlbumConnection error: (albums table)' , mysqli_connect_error();
 }
 if(!$listings_conn){
   echo 'Connection error (listings table): ' , mysqli_connect_error();
