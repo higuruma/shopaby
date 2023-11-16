@@ -15,8 +15,6 @@ $sql = "SELECT
     WHERE users.id = $_SESSION[currentUser]
     ;"
 ;
-
-// echo intval($_SESSION['currentUser']);
 // make query and get result
 // uses $conn variable ref to connect
 
@@ -32,16 +30,13 @@ $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $r = $_GET['r'];
 $view = $_GET['view-listing'];
 if (isset($view)) {
-  // $listing_id = intval($listing['listing_id']);
   echo $view;
   $_SESSION["currentListing"] = intval($view);
   echo "<script> location.href='/shopaby/display_listing.php'; </script>";
 }
 $q = $_GET['q'];
 $del = $_GET['delete-listing'];
-// if (isset($_GET['submit'])) {
 if (isset($del)) {
-  // $listing_id = intval($listing['listing_id']);
   $listing_id = intval($del);
   $u_id = intval($_SESSION["currentUser"]);
   $sql = "DELETE FROM listings WHERE listing_id = '$listing_id'";

@@ -1,10 +1,5 @@
 <?php include('templates/header.php');
 
-
-
-// $sql_albums = "SELECT listing_id, u_id FROM albums ORDER BY u_id";
-// $result_albums = mysqli_query($albums_conn, $sql_albums);
-// $albums = mysqli_fetch_all($result_albums, MYSQLI_ASSOC);
 // make query and get result
 // uses $conn variable ref to connect
 
@@ -22,14 +17,8 @@ $result = mysqli_query($conn, $sql);
 
 $listings = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-// Have to get from result the array that want
-// fetch resulting rows
-// returns $result as associative array
-
 $add = $_GET['add-listing'];
-// if (isset($_GET['submit'])) {
 if (isset($add)) {
-  // $listing_id = intval($listing['listing_id']);
   $listing_id = intval($add);
   $u_id = intval($_SESSION["currentUser"]);
   $insert_sql = "INSERT INTO albums (listing_id, u_id) VALUES ('$listing_id', '$u_id')";

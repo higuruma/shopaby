@@ -62,6 +62,7 @@ if (isset($_POST['submit'])) {
     if (array_filter($errors)) {
         echo "errors in form";
     } else {
+        //to sql string
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
         $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
@@ -69,7 +70,6 @@ if (isset($_POST['submit'])) {
         $psw = mysqli_real_escape_string($conn, $_POST['psw']);
 
         //username validation
-        // checkUsername($username);
         $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
         $userExists = false;
@@ -92,9 +92,6 @@ if (isset($_POST['submit'])) {
         }
         //save to db
         if (mysqli_query($conn, $sql)) {
-            //$current_user = $username;  should be moved to signin page
-            // header('Location: home.php');
-
         } else {
             echo 'query error: ' . mysqli_error($conn);
         }

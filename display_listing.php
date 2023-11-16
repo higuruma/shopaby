@@ -1,8 +1,10 @@
 <?php include('templates/header.php');
 
+//retrieve logged in user
 $listing_id = $_SESSION["currentListing"];
 $q = $_GET['q'];
 
+//query all listings' info
 $sql = "SELECT 
         listing_id, 
         listing_name, 
@@ -23,9 +25,9 @@ $listings = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $r = $_GET['r'];
 $add = $_GET['add-listing'];
-// if (isset($_GET['submit'])) {
+
+//add listing to cart
 if (isset($add)) {
-  // $listing_id = intval($listing['listing_id']);
   $list_id = intval($add);
   $u_id = intval($_SESSION["currentUser"]);
   $insert_sql = "INSERT INTO albums (listing_id, u_id) VALUES ('$list_id', '$u_id')";
@@ -37,16 +39,12 @@ if (isset($add)) {
 
 <!DOCTYPE html>
 <html>
-
-<head>
-
-</head>
-
 <body>
   <div class="gen-body-div">
     <h4 class="page-center-title">
       <?php echo $listings[0]['listing_name']; ?>
     </h4>
+    <!-- Display each listing as a card -->
     <div class="display-container">
       <div class="display">
         <div class="display-image"><img class="display-image-file"

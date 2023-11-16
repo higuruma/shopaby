@@ -32,19 +32,16 @@ if(isset($_POST['submit'])){
     
     if(array_filter($errors)){
         echo "errors in form";
-        // echo $errors;
     }else{
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $psw = mysqli_real_escape_string($conn, $_POST['psw']);
         
-        //username validation
-        // checkUsername($username);
+        //select info where user matches username
         
         $sql = "SELECT id, username, psw FROM users WHERE username = '$username'";
 
         $result = mysqli_query($conn, $sql);
-        // var_dump($result);
-        
+
         //if $result has no rows, that means no users with matching username found
         if(mysqli_num_rows($result) == 0){
             //userfound, noInput = false, since not the first time user on page anymore
@@ -54,17 +51,12 @@ if(isset($_POST['submit'])){
         }else{
             $userFound = true;
             $found_user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-            //echo "found user";
-            //var_dump($found_user);
             foreach($found_user as $fu){
                 if(htmlspecialchars($fu['psw']) == htmlspecialchars($psw)){
                     $pswCorrect = true;
                     $_SESSION["currentUser"] = intval($fu['id']);
                     $_SESSION["userLoggedIn"] = true;
                 }else{
-                    // echo "pw is wrong";
-                    // var_dump($fu['psw']);
                     $pswCorrect = false;
                 }
             }
@@ -79,23 +71,11 @@ if(isset($_POST['submit'])){
         exit();
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <?php include('templates/header.php'); ?>
-<!-- <h4 class="center">Login</h4>
-<form action = "login.php" class = "white" method = "POST">
-<label>Username</label></label>
-<input type = "text" name = "username">
-<label>Password</label></label>
-<input type = "password" name = "psw">
-<div class="center">
-<input type = "submit" name = "submit" value = "Login!" class = "btn-brand z-depth-0">
-</div>
-</form> -->
 <form class="input-form" action="/shopaby/login.php" method="POST">
     <label>Username</label></label>
     <input type="text" name="username" placeholder="Your username..">
@@ -109,8 +89,6 @@ if(isset($_POST['submit'])){
 <?php if($pswCorrect == true): ?>
 <?php 
         $_SESSION["userLoggedIn"] = true;
-        // echo "<script> location.href='/shopaby/home.php'; </script>";
-        // exit;
         ?>
 <?php elseif($pswCorrect == false):?>
 <!-- Otherwise, if user found but password not true, show wrong password dialog -->

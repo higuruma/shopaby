@@ -30,12 +30,11 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <!-- links and whatnot -->
+    <!-- style links and whatnot -->
     <title>Shopaby</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles/header-styles.css">

@@ -5,6 +5,7 @@ include('config/db_connect.php');
 $listing_id = $_SESSION["currentListing"];
 $q = $_GET['q'];
 
+//query listings from db
 $sql = "SELECT 
         listing_id, 
         listing_name, 
@@ -27,7 +28,6 @@ $listings = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $listing_name = $price = $quantity = $listing_desc = '';
 $errors = array('listing_name' => '', 'price' => '', 'quantity' => '', 'listing_desc' => '', 'listing_image' => '');
 $currentUser = intval($_SESSION["currentUser"]);
-// var_dump($currentUser);
 $noInput = true;
 
 if (isset($_POST['submit'])) {
@@ -73,36 +73,28 @@ if (isset($_POST['submit'])) {
         $fileName = basename($_FILES["image"]["name"]);
         $fileTmpName = $_FILES["image"]["tmp_name"];
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
-
+        
+        //check if file uploaded successfully
         if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
             echo "uploading file successfully ";
         } else {
             echo "Error uploading file: " . $_FILES['image']['error'];
         }
 
-        // $fileName = basename($_FILES["image"]["name"]);
-        // echo "<script> location.href='/shopaby/home.php?test1=$fileName&test2=$fileType'; </script>";
-        // exit;
-
         // Allow certain file formats 
         $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
         if (in_array($fileType, $allowTypes)) {
             $image = $_FILES['image']['tmp_name'];
-            // $image = file_get_contents(addslashes($image));
-            // $image = file_get_contents(addslashes($fileTmpName));
             $image = file_get_contents($fileTmpName);
 
         } else {
             $errors['listing-image'] = 'Please select an image file to upload.';
 
         }
-        // $fileSize = $_FILES["image"]["size"];
-        // $img_length = strlen($image);
-        // echo "<script> location.href='/shopaby/home.php?test1=$fileName&test2=$img_length'; </script>";
-        // exit;
     }
 
     if (array_filter($errors)) {
+        //echo errors, for now
         echo "errors in form";
         var_dump($errors);
     } else {
@@ -115,11 +107,11 @@ if (isset($_POST['submit'])) {
         if ($result) {
 
             $seller = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            // echo nl2br("\n  seller array ");
-            // var_dump($seller);
             $seller_name = mysqli_real_escape_string($conn, $seller[0]['username']);
             $user_id = mysqli_real_escape_string($conn, $seller[0]['id']);
         }
+
+        //change type to sql insertable string
 
         $fileTmpName = $_FILES["image"]["tmp_name"];
         $image = file_get_contents($fileTmpName);
@@ -132,7 +124,6 @@ if (isset($_POST['submit'])) {
         $user_id = mysqli_real_escape_string($conn, $seller[0]['id']);
 
         // Check if a file is uploaded
-        // $fileTmpName = $_FILES['image']['tmp_name'];
 
         // Use prepared statements to avoid SQL injection
         $insert_sql = "INSERT INTO listings (listing_name, seller_name, user_id, price, quantity, listing_image, listing_desc) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -156,9 +147,7 @@ if (isset($_POST['submit'])) {
         } else {
             echo "Error inserting record: " . $stmt->error;
         }
-
-
-
+        
         // Close the statement
         $stmt->close();
 

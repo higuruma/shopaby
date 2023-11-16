@@ -1,13 +1,5 @@
 <?php include('templates/header.php');
 
-
-
-// $sql_albums = "SELECT listing_id, u_id FROM albums ORDER BY u_id";
-// $result_albums = mysqli_query($albums_conn, $sql_albums);
-// $albums = mysqli_fetch_all($result_albums, MYSQLI_ASSOC);
-// make query and get result
-// uses $conn variable ref to connect
-
 $q = $_GET['q'];
 $r = $_GET['r'];
 
@@ -29,9 +21,7 @@ $listings = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // returns $result as associative array
 
 $add = $_GET['add-listing'];
-// if (isset($_GET['submit'])) {
 if (isset($add)) {
-  // $listing_id = intval($listing['listing_id']);
   $listing_id = intval($add);
   $u_id = intval($_SESSION["currentUser"]);
   $insert_sql = "INSERT INTO albums (listing_id, u_id) VALUES ('$listing_id', '$u_id')";
@@ -40,7 +30,6 @@ if (isset($add)) {
 
 $view = $_GET['view-listing'];
 if (isset($view)) {
-  // $listing_id = intval($listing['listing_id']);
   echo $view;
   $_SESSION["currentListing"] = intval($view);
   echo "<script> location.href='/shopaby/display_listing.php'; </script>";
@@ -49,10 +38,6 @@ if (isset($view)) {
 
 <!DOCTYPE html>
 <html>
-
-<head>
-
-</head>
 
 <body>
   <div class="gen-body-div">

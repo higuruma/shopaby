@@ -1,19 +1,6 @@
 <?php
 include('config/db_connect.php');
 
-
-// write query for all users
-// SELECT = RETRIEVE, FROM = GET FROM
-// star (*) means u want all the columns for each record
-// if no want all, type them out instead
-
-// $sql = 'SELECT first_name, last_name FROM users ORDER BY created_at';
-
-//$search_field = DOMDocument::getElementById("demo");
-
-// $_POST["search"];
-// echo 'Testing–Retrieve search item:' . $_GET['q'];
-
 $q = $_GET['q'];
 
 $sql = "SELECT first_name, last_name FROM users WHERE LOWER(first_name) LIKE LOWER('%$q%') ORDER BY created_at";
