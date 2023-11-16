@@ -1,10 +1,9 @@
 # shopaby
-sup bozo
 
 2023 SU-ACM Personal Project Competition 
 
-Hello
+E-Commerce/Kpop Photocard Trading Website
 
-babies4ever
+Angela Han, Alice Han, Jayden Sastradi
 
 This website allows users to list, browse, and trade/sell cards.
