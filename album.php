@@ -17,16 +17,7 @@ $sql = "SELECT DISTINCT
     ;"
 ;
 
-// echo intval($_SESSION['currentUser']);
-// make query and get result
-// uses $conn variable ref to connect
-
 $result = mysqli_query($conn, $sql);
-
-// Have to get from result the array that want
-// fetch resulting rows
-// returns $result as associative array
-
 $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $q = $_GET['q'];

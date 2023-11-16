@@ -29,12 +29,11 @@ $listings = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // returns $result as associative array
 
 $add = $_GET['add-listing'];
-// if (isset($_GET['submit'])) {
 if (isset($add)) {
-  // $listing_id = intval($listing['listing_id']);
   $listing_id = intval($add);
   $u_id = intval($_SESSION["currentUser"]);
-  $insert_sql = "INSERT INTO albums (listing_id, u_id) VALUES ('$listing_id', '$u_id')";
+  $insert_sql = "INSERT INTO albums (listing_id, u_id) 
+                VALUES ('$listing_id', '$u_id')";
   $insert_result = mysqli_query($conn, $insert_sql);
 }
 
