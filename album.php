@@ -1,6 +1,6 @@
 <?php include('templates/header.php');
 
-
+//query listing and albums from db
 $sql = "SELECT DISTINCT
       listings.listing_id, 
       listings.listing_name, 
@@ -17,20 +17,12 @@ $sql = "SELECT DISTINCT
     ;"
 ;
 
-// echo intval($_SESSION['currentUser']);
-// make query and get result
-// uses $conn variable ref to connect
-
 $result = mysqli_query($conn, $sql);
 
-// Have to get from result the array that want
-// fetch resulting rows
-// returns $result as associative array
-
+//retrieve values from result
 $albums = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-$q = $_GET['q'];
-
+//album deletion
 $del = $_GET['delete-listing'];
 if (isset($del)) {
   // $listing_id = intval($listing['listing_id']);
@@ -48,11 +40,6 @@ if (isset($del)) {
 
 <!DOCTYPE html>
 <html>
-
-<head>
-
-</head>
-
 <body>
   <div class="gen-body-div">
     <h4 class="page-center-title">my album</h4>
@@ -80,7 +67,6 @@ if (isset($del)) {
                   added: <?php echo htmlspecialchars($album['added_at']) ?>
                 </div>
                 <form method="get">
-              <input type="hidden" name="q" value="<?php echo $q ?>">
               <input type="hidden" name="delete-listing" value="<?php echo htmlspecialchars($album['listing_id']) ?>">
               <input class="add-to-album-button" type="submit" name="submit" value="remove" />
             </form>
